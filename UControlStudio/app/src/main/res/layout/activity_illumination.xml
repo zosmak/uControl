@@ -65,12 +65,12 @@
             </NumberPicker>
 
             <ImageView
-                android:layout_height="match_parent"
                 app:srcCompat="@drawable/ilumchange"
                 android:id="@+id/imageButton"
                 android:paddingLeft="50dp"
                 android:layout_width="220dp"
-                android:paddingBottom="40dp" />
+                android:paddingBottom="40dp"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
