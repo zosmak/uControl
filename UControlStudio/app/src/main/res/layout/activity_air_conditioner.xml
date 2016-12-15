@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_illumination"
+    android:id="@+id/activity_air_conditioner"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_illumination"
-    android:background="@color/color_ilumination">
+    tools:context="ucontrol.ucontrolstudio.activity_air_conditioner"
+    android:background="@color/color_ac">
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,7 +20,7 @@
         android:layout_alignParentStart="true">
 
         <TextView
-            android:text="Ligths"
+            android:text="Air Conditioner"
             android:layout_width="match_parent"
             android:id="@+id/textView"
             android:fontFamily="bariol"
@@ -30,30 +30,25 @@
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:textColor="@android:color/white"
-            android:id="@+id/lista_ilumination" />
-
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="wrap_content">
 
-            <Switch
-                android:text="Power"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ilumination_switch"
-                android:textColor="@android:color/white"
-                android:layout_weight="1" />
+            <ImageView
+                app:srcCompat="@drawable/arcondicionadoschedule"
+                android:id="@+id/ac_schedule"
+                android:paddingBottom="40dp"
+                android:layout_height="80dp"
+                android:layout_width="180dp"
+                android:layout_marginLeft="90dp" />
         </LinearLayout>
 
+
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="250dp">
 
             <TextView
                 android:text="Intensity"
@@ -70,7 +65,7 @@
             </NumberPicker>
 
             <ImageView
-                app:srcCompat="@drawable/ilumchange"
+                app:srcCompat="@drawable/arcondicionadochange"
                 android:id="@+id/imageButton"
                 android:paddingLeft="50dp"
                 android:layout_width="wrap_content"
@@ -78,7 +73,19 @@
                 android:layout_height="80dp" />
 
         </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
 
+            <Switch
+                android:text="Power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ilumination_switch"
+                android:textColor="@android:color/white"
+                android:layout_weight="1" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
