@@ -15,16 +15,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_illumination"
-                  android:label="Ilumination"/>
-        <activity android:name=".activity_alarms"
-                  android:label="Alarms"/>
-        <activity android:name=".activity_blinds"
-                  android:label="Blinds"/>
-        <activity android:name=".activity_air_conditioner"
-                  android:label="Air Conditioner"/>
-        <activity android:name=".activity_ac_schedule"
-                  android:label="Shedule"></activity>
+        <activity
+            android:name=".activity_illumination"
+            android:label="Ilumination" />
+        <activity
+            android:name=".activity_alarms"
+            android:label="Alarms" />
+        <activity
+            android:name=".activity_blinds"
+            android:label="Blinds" />
+        <activity
+            android:name=".activity_air_conditioner"
+            android:label="Air Conditioner" />
+        <activity
+            android:name=".activity_ac_schedule"
+            android:label="Shedule" />
+        <activity
+            android:name=".activity_doors"
+            android:label="Doors" />
+        <activity
+            android:name=".activity_manage"
+            android:label="Manage" />
+        <activity android:name=".activity_madd"
+            android:label="Add"/>
+        <activity android:name=".activity_mremove"
+            android:label="Remove"></activity>
     </application>
 
 </manifest>
