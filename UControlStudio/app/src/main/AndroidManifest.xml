@@ -15,8 +15,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_illumination" />
-        <activity android:name=".activity_alarms"></activity>
+        <activity android:name=".activity_illumination"
+                  android:label="Ilumination"/>
+        <activity android:name=".activity_alarms"
+                  android:label="Alarms"/>
+        <activity android:name=".activity_blinds"
+                  android:label="Blinds"/>
+        <activity android:name=".activity_air_conditioner"
+                  android:label="Air Conditioner"/>
+        <activity android:name=".activity_ac_schedule"
+                  android:label="Shedule"></activity>
     </application>
 
 </manifest>

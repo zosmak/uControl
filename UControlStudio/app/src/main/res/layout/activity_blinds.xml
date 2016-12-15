@@ -2,25 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_illumination"
+    android:id="@+id/activity_blinds"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_illumination"
-    android:background="@color/color_ilumination">
+    tools:context="ucontrol.ucontrolstudio.activity_blinds"
+    android:background="@color/color_blinds">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
         <TextView
-            android:text="Ligths"
+            android:text="Blinds"
             android:layout_width="match_parent"
             android:id="@+id/textView"
             android:fontFamily="bariol"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:textColor="@android:color/white"
-            android:id="@+id/lista_ilumination" />
+            android:id="@+id/lista_blinds" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -56,7 +56,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="Intensity"
+                android:text="Lift"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:textColor="@android:color/white"
