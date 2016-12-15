@@ -9,6 +9,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView ilumination;
+    private ImageView television;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
