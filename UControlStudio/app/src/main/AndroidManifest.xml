@@ -30,9 +30,22 @@
         <activity
             android:name=".activity_ac_schedule"
             android:label="Shedule" />
+<<<<<<< HEAD
         <activity android:name=".activity_television" />
         <activity android:name=".activity_tv_recordings" />
         <activity android:name=".activity_audio"></activity>
+=======
+        <activity
+            android:name=".activity_doors"
+            android:label="Doors" />
+        <activity
+            android:name=".activity_manage"
+            android:label="Manage" />
+        <activity android:name=".activity_madd"
+            android:label="Add"/>
+        <activity android:name=".activity_mremove"
+            android:label="Remove"></activity>
+>>>>>>> origin/master
     </application>
 
 </manifest>
