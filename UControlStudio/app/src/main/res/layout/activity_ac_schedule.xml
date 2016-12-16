@@ -12,6 +12,8 @@
     tools:context="ucontrol.ucontrolstudio.activity_ac_schedule"
     android:background="@color/color_ac">
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -139,7 +141,8 @@
                 android:paddingLeft="50dp"
                 android:layout_width="wrap_content"
                 android:paddingBottom="40dp"
-                android:layout_height="80dp" />
+                android:layout_height="80dp"
+                android:layout_marginTop="70dp" />
 
         </LinearLayout>
             <ImageView

@@ -47,7 +47,6 @@
                 android:textOn='Open'
                 android:textOff='Closed'
                 android:showText="true"
-                style="@android:style/Widget.Holo.Light.CompoundButton.Switch"
                 android:checked="false" />
 
         <ImageView
