@@ -20,7 +20,7 @@
 
         <ImageView
             app:srcCompat="@drawable/manageadd"
-            android:id="@+id/imageButtonRemove"
+            android:id="@+id/imageButtonAdd"
             android:layout_width="match_parent"
             android:paddingBottom="0dp"
             android:layout_height="85dp"
@@ -31,7 +31,7 @@
 
         <ImageView
             app:srcCompat="@drawable/manageremove"
-            android:id="@+id/imageButtonAdd"
+            android:id="@+id/imageButtonRemove"
             android:layout_width="match_parent"
             android:paddingBottom="0dp"
             android:layout_height="85dp"
