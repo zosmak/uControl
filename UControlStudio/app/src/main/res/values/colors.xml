@@ -10,16 +10,11 @@
     <color name="color_blinds">#e51e25</color>
     <color name="colorPrimaryBlinds">#e51e25</color>
     <color name="color_ac">#8a3d7f</color>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     <color name="colorTelevision">#ef9b20</color>
     <color name="color_audio">#e8600c</color>
-=======
-    <color name="color_doors">#ef3a24</color>
->>>>>>> origin/master
-=======
     <color name="colorPrimaryAc">#8a3d7f</color>
     <color name="color_doors">#ef3a24</color>
     <color name="colorPrimaryDoors">#ef3a24</color>
->>>>>>> origin/master
+
 </resources>
