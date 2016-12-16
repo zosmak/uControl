@@ -33,17 +33,16 @@
             android:theme="@style/AppThemeAc"/>
         <activity
             android:name=".activity_ac_schedule"
-<<<<<<< HEAD
             android:label="Shedule" />
-<<<<<<< HEAD
-        <activity android:name=".activity_television" />
-        <activity android:name=".activity_tv_recordings" />
-        <activity android:name=".activity_audio"></activity>
-=======
-=======
-            android:label="Shedule"
-            android:theme="@style/AppThemeAc"/>
->>>>>>> origin/master
+
+        <activity android:name=".activity_television"
+            android:label="Televison"/>
+        <activity android:name=".activity_tv_recordings"
+            android:label="Recordings"/>
+        <activity android:name=".activity_audio"
+            android:label="Audio"></activity>
+
+
         <activity
             android:name=".activity_doors"
             android:label="Doors"
@@ -56,13 +55,9 @@
             android:label="Add"
             android:theme="@style/AppTheme"/>
         <activity android:name=".activity_mremove"
-<<<<<<< HEAD
-            android:label="Remove"></activity>
->>>>>>> origin/master
-=======
             android:label="Remove"
             android:theme="@style/AppTheme"></activity>
->>>>>>> origin/master
+
     </application>
 
 </manifest>
