@@ -8,12 +8,9 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-    private ImageView ilumination;
-    private ImageView television;
-=======
+
     private ImageView illumination, television, air_conditioner, audio, blinds, alarms, doors, manage;
->>>>>>> origin/master
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +34,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // Intent para a pag. tv
+        television.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), activity_television.class);
+                startActivity(intent);
+            }
+        });
         // Intent para a pag. ac
         air_conditioner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), activity_air_conditioner.class);
+                startActivity(intent);
+            }
+        });
+        // Intent para a pag. ac
+        audio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), activity_audio.class);
                 startActivity(intent);
             }
         });

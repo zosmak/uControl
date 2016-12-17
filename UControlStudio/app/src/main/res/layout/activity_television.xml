@@ -18,18 +18,25 @@
         android:layout_height="match_parent">
 
         <Button
-            android:text="Button"
+            android:text="Channels"
             android:layout_width="wrap_content"
-            android:layout_height="173dp"
-            android:id="@+id/channels"
-            android:layout_weight="0.52" />
+            android:id="@+id/channels_tv"
+            android:layout_weight="0.5"
+            tools:text="Channels"
+            android:textColor="@android:color/white"
+            android:background="@android:color/darker_gray"
+            android:layout_height="172dp"
+            android:drawableBottom="@color/colorPrimary" />
 
         <Button
-            android:text="Button"
-            android:layout_width="10dp"
-            android:layout_height="172dp"
-            android:id="@+id/Recordins"
-            android:layout_weight="1" />
+            android:text="Recordings"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:id="@+id/recordings_tv"
+            android:layout_weight="0.5"
+            tools:text="Recordings"
+            android:background="?attr/colorAccent"
+            android:layout_height="172dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,11 +53,15 @@
         </NumberPicker>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             app:srcCompat="@drawable/tvgoto"
             android:id="@+id/imageView3"
+            android:layout_marginLeft="30dp"
             android:layout_weight="1" />
     </LinearLayout>
+
+
 
 </RelativeLayout>

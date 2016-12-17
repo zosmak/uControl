@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_ilumination">#f05224</color>
@@ -10,10 +10,10 @@
     <color name="color_blinds">#e51e25</color>
     <color name="colorPrimaryBlinds">#e51e25</color>
     <color name="color_ac">#8a3d7f</color>
-
-    <color name="colorTelevision">#ef9b20</color>
-    <color name="color_audio">#e8600c</color>
     <color name="colorPrimaryAc">#8a3d7f</color>
+    <color name="colorTelevision">#ef9b20</color>
+    <color name="colorPrimaryTv">#ef9b20</color>
+    <color name="color_audio">#e8600c</color>
     <color name="color_doors">#ef3a24</color>
     <color name="colorPrimaryDoors">#ef3a24</color>
 
