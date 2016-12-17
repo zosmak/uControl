@@ -3,7 +3,7 @@ include 'database.php';
 
 $pDatabase = Database::getInstance();
 
-if (isset($_GET['idDispositivo']) && isset($_GET['descricao']) 
+if (isset($_GET['idDispositivo']) && isset($_GET['descricao']))
 {
 $sql = "INSERT INTO dispositivo (idDispositivo, descricao) VALUES 
 ('".$_GET['idDispositivo']."','".$_GET['descricao']."');";
