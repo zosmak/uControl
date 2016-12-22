@@ -33,7 +33,7 @@
             android:theme="@style/AppThemeAc"/>
         <activity
             android:name=".activity_ac_schedule"
-            android:label="Shedule"
+            android:label="Schedule"
             android:theme="@style/AppThemeAc"/>
         <activity
             android:name=".activity_television"

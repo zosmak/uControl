@@ -42,7 +42,7 @@
             android:layout_height="50dp">
 
             <Switch
-                android:text="Power"
+                android:text="Power:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ilumination_switch"
@@ -69,7 +69,8 @@
 
             <NumberPicker
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/nbIllumination">
             </NumberPicker>
 
             <ImageView

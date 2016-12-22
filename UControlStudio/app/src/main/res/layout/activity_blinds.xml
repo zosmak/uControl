@@ -42,7 +42,7 @@
             android:layout_height="50dp">
 
             <Switch
-                android:text="State"
+                android:text="State:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ilumination_switch"
@@ -59,7 +59,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="Lift"
+                android:text="Lift:"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:textColor="@android:color/white"
@@ -69,7 +69,8 @@
 
             <NumberPicker
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/nbBlinds">
             </NumberPicker>
 
             <ImageView

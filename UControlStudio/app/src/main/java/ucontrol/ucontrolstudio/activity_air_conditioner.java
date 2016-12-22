@@ -9,11 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 public class activity_air_conditioner extends AppCompatActivity {
 
     private ImageView ac_schedule;
+    private NumberPicker nb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class activity_air_conditioner extends AppCompatActivity {
         setContentView(R.layout.activity_air_conditioner);
 
         ac_schedule = (ImageView)findViewById(R.id.ac_schedule);
+        nb = (NumberPicker) findViewById(R.id.nbAc);
 
         ac_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +32,10 @@ public class activity_air_conditioner extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        nb.setMaxValue(40);
+        nb.setMinValue(1);
+        nb.setWrapSelectorWheel(false);
     }
 
     @Override

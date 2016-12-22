@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 public class activity_television extends AppCompatActivity {
 
     private Button recordings;
+    private NumberPicker nb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class activity_television extends AppCompatActivity {
         setContentView(R.layout.activity_television);
 
         recordings = (Button) findViewById(R.id.recordings_tv);
+        nb = (NumberPicker) findViewById(R.id.nbTv);
 
         recordings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +34,11 @@ public class activity_television extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        nb.setMaxValue(50);
+        nb.setMinValue(1);
+        nb.setWrapSelectorWheel(false);
+
     }
 
     @Override

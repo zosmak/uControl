@@ -6,14 +6,23 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 public class activity_ac_schedule extends AppCompatActivity {
+
+    private NumberPicker nb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ac_schedule);
+
+        nb = (NumberPicker) findViewById(R.id.nbSchedule);
+
+        nb.setMaxValue(40);
+        nb.setMinValue(1);
+        nb.setWrapSelectorWheel(false);
     }
 
     @Override
