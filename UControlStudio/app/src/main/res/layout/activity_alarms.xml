@@ -41,8 +41,11 @@
             android:layout_height="50dp">
 
             <Switch
-                android:text="Power"
+                android:text="Power:"
                 android:layout_width="wrap_content"
+                android:textOn='On'
+                android:textOff='Off'
+                android:showText="true"
                 android:layout_height="wrap_content"
                 android:id="@+id/ilumination_switch"
                 android:textColor="@android:color/white"

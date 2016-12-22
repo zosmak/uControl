@@ -56,7 +56,8 @@
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:layout_height="50dp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:paddingTop="20dp" />
 
         <ListView
             android:layout_width="match_parent"

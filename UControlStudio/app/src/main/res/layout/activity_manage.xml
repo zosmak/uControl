@@ -16,29 +16,31 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp">
+        android:layout_marginTop="100dp">
 
         <ImageView
             app:srcCompat="@drawable/manageadd"
             android:id="@+id/imageButtonAdd"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:paddingBottom="0dp"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:paddingTop="50px"/>
+            android:paddingTop="50px"
+            android:layout_gravity="center_horizontal" />
 
         <ImageView
             app:srcCompat="@drawable/manageremove"
             android:id="@+id/imageButtonRemove"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:paddingBottom="0dp"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:paddingTop="50px"/>
+            android:paddingTop="50px"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
 </RelativeLayout>

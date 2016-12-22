@@ -11,22 +11,22 @@
     <style name="AppThemeAc" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimaryAc</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryAc</item>
+        <item name="colorAccent">@color/colorPrimaryAc</item>
     </style>
 
     <style name="AppThemeAudio" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimaryAudio</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryAudio</item>
+        <item name="colorAccent">@color/colorPrimaryAudio</item>
     </style>
 
     <style name="AppThemeBlinds" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimaryBlinds</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryBlinds</item>
+        <item name="colorAccent">@color/colorPrimaryBlinds</item>
     </style>
 
     <style name="AppThemeTv" parent="Theme.AppCompat.Light.DarkActionBar">

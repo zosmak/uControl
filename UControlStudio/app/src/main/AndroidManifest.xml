@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,16 +33,20 @@
             android:theme="@style/AppThemeAc"/>
         <activity
             android:name=".activity_ac_schedule"
-            android:label="Shedule" />
-
-        <activity android:name=".activity_television"
-            android:label="Televison"/>
-        <activity android:name=".activity_tv_recordings"
-            android:label="Recordings"/>
-        <activity android:name=".activity_audio"
-            android:label="Audio"></activity>
-
-
+            android:label="Shedule"
+            android:theme="@style/AppThemeAc"/>
+        <activity
+            android:name=".activity_television"
+            android:label="Televison"
+            android:theme="@style/AppThemeTv"/>
+        <activity
+            android:name=".activity_tv_recordings"
+            android:label="Recordings"
+            android:theme="@style/AppThemeTv"/>
+        <activity
+            android:name=".activity_audio"
+            android:label="Audio"
+            android:theme="@style/AppThemeAudio"></activity>
         <activity
             android:name=".activity_doors"
             android:label="Doors"
@@ -51,10 +55,12 @@
             android:name=".activity_manage"
             android:label="Manage"
             android:theme="@style/AppThemeAc"/>
-        <activity android:name=".activity_madd"
+        <activity
+            android:name=".activity_madd"
             android:label="Add"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".activity_mremove"
+        <activity
+            android:name=".activity_mremove"
             android:label="Remove"
             android:theme="@style/AppTheme"></activity>
 

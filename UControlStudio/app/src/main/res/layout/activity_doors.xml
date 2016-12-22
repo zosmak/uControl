@@ -44,21 +44,22 @@
                 android:id="@+id/doors_switch"
                 android:textColor="@android:color/white"
                 android:switchTextAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textOn='Open'
-                android:textOff='Closed'
+                android:textOn='On'
+                android:textOff='Off'
                 android:showText="true"
                 android:checked="false" />
 
         <ImageView
             app:srcCompat="@drawable/doorsconfirm"
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:paddingBottom="0dp"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:paddingTop="60px"/>
+            android:paddingTop="60px"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 
