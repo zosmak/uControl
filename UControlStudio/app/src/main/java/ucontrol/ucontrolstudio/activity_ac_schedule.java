@@ -1,6 +1,7 @@
 package ucontrol.ucontrolstudio;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,13 +14,14 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 public class activity_ac_schedule extends AppCompatActivity {
 
     private NumberPicker nb;
     private ImageView start, end;
     private TextView tvstart, tvend;
-    private int ano = 1980, mes = 01, dia = 01;
+    private int horas=12, minutos=00;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class activity_ac_schedule extends AppCompatActivity {
         start = (ImageView) findViewById(R.id.scheduleStart);
         end = (ImageView) findViewById(R.id.scheduleEnd);
         tvstart = (TextView) findViewById(R.id.start);
+        tvend = (TextView) findViewById(R.id.end);
 
         nb.setMaxValue(40);
         nb.setMinValue(1);
@@ -37,24 +40,18 @@ public class activity_ac_schedule extends AppCompatActivity {
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                DatePickerDialog picker = new DatePickerDialog(
-                        activity_ac_schedule.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-
-                                tvstart.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
-                            }
-                        },
-                        ano,
-                        mes,
-                        dia
-                );
-                picker.show();
+            public void onClick(View view) {
+                timepickerStart();
             }
         });
 
+
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timepickerEnd();
+            }
+        });
     }
 
     @Override
@@ -70,5 +67,37 @@ public class activity_ac_schedule extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
         return true;
+    }
+
+    // time picker start
+    public void timepickerStart(){
+        // Lançar timepicker
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay,
+                                          int minute) {
+
+                        tvstart.setText(hourOfDay + ":" + minute);
+                    }
+                }, horas, minutos, false);
+        timePickerDialog.show();
+    }
+
+    // time picker end
+    public void timepickerEnd(){
+        // Lançar timepicker
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay,
+                                          int minute) {
+
+                        tvend.setText(hourOfDay + ":" + minute);
+                    }
+                }, horas, minutos, false);
+        timePickerDialog.show();
     }
 }
