@@ -7,14 +7,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.net.URL;
 
 public class activity_alarms extends AppCompatActivity {
+
+    TextView teste;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarms);
+
+        teste = (TextView)findViewById(R.id.teste);
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
