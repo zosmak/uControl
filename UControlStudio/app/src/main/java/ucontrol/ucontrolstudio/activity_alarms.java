@@ -1,5 +1,6 @@
 package ucontrol.ucontrolstudio;
 
+import android.app.DownloadManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,16 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.URL;
 
@@ -22,7 +33,11 @@ public class activity_alarms extends AppCompatActivity {
 
         teste = (TextView)findViewById(R.id.teste);
 
+
+
     }
+
+
 
 
 
