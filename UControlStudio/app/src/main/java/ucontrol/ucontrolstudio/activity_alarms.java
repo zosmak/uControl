@@ -38,12 +38,12 @@ public class activity_alarms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarms);
 
-        listarDivisoes();
+        listarSensores();
 
     }
 
     // Listar alarmes
-   public  void  listarDivisoes()
+   public  void  listarSensores()
     {
         try
         {
