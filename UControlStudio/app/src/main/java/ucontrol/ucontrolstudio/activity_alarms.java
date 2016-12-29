@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -28,21 +29,21 @@ import java.util.ArrayList;
 
 public class activity_alarms extends AppCompatActivity {
 
-    TextView t;
+    private TextView t;
+    private ListView la;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarms);
 
-        listarAlarmes();
-
-
+        listarDivisoes();
 
     }
 
     // Listar alarmes
-   public  void  listarAlarmes()
+   public  void  listarDivisoes()
     {
         try
         {
@@ -57,14 +58,22 @@ public class activity_alarms extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
+
+                                final ArrayList<String> alarmes = new ArrayList<>();
+                                ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_1, alarmes);
+
+
                                 String res="", idDivisao, descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                    // idDivisao = obj.getString("idDivisao");
                                     descricao = obj.getString("descricao");
                                     res += "" + descricao;
+                                    alarmes.add(descricao);
                                 }
                                 t.setText(res);
+                                la = (ListView)findViewById(R.id.lista_alarms);
+                                la.setAdapter(adapterAlarmes);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
