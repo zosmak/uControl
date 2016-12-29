@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URL;
+import java.util.ArrayList;
 
 public class activity_alarms extends AppCompatActivity {
 
@@ -56,12 +57,12 @@ public class activity_alarms extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
-                              String res="", idDivisao, descricao;
+                                String res="", idDivisao, descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                    // idDivisao = obj.getString("idDivisao");
                                     descricao = obj.getString("descricao");
-                                    res += " descrição:" + descricao;
+                                    res += "" + descricao;
                                 }
                                 t.setText(res);
                             } catch (JSONException e) {
@@ -88,15 +89,12 @@ public class activity_alarms extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
 
         MenuItem item = menu.findItem(R.id.spinner);
         Spinner spinner = (Spinner) MenuItemCompat.getActionView(item);
-
-
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinner_list_item_array, android.R.layout.simple_spinner_item);

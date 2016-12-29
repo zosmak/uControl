@@ -20,52 +20,55 @@
         <activity
             android:name=".activity_illumination"
             android:label="Ilumination"
-            android:theme="@style/AppThemeIllumination"/>
+            android:theme="@style/AppThemeIllumination" />
         <activity
             android:name=".activity_alarms"
             android:label="Alarms"
-            android:theme="@style/AppThemeAlarms"/>
+            android:theme="@style/AppThemeAlarms" />
         <activity
             android:name=".activity_blinds"
             android:label="Blinds"
-            android:theme="@style/AppThemeBlinds"/>
+            android:theme="@style/AppThemeBlinds" />
         <activity
             android:name=".activity_air_conditioner"
             android:label="Air Conditioner"
-            android:theme="@style/AppThemeAc"/>
+            android:theme="@style/AppThemeAc" />
         <activity
             android:name=".activity_ac_schedule"
             android:label="Schedule"
-            android:theme="@style/AppThemeAc"/>
+            android:theme="@style/AppThemeAc" />
         <activity
             android:name=".activity_television"
             android:label="Televison"
-            android:theme="@style/AppThemeTv"/>
+            android:theme="@style/AppThemeTv" />
         <activity
             android:name=".activity_tv_recordings"
             android:label="Recordings"
-            android:theme="@style/AppThemeTv"/>
+            android:theme="@style/AppThemeTv" />
         <activity
             android:name=".activity_audio"
             android:label="Audio"
-            android:theme="@style/AppThemeAudio"></activity>
+            android:theme="@style/AppThemeAudio" />
         <activity
             android:name=".activity_doors"
             android:label="Doors"
-            android:theme="@style/AppThemeDoors"/>
+            android:theme="@style/AppThemeDoors" />
         <activity
             android:name=".activity_manage"
             android:label="Manage"
-            android:theme="@style/AppThemeAc"/>
+            android:theme="@style/AppThemeAc" />
         <activity
             android:name=".activity_madd"
             android:label="Add"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activity_mremove"
             android:label="Remove"
-            android:theme="@style/AppTheme"></activity>
-
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".addDivision"
+            android:label="Add division"
+            android:theme="@style/AppThemeAc" ></activity>
     </application>
 
 </manifest>

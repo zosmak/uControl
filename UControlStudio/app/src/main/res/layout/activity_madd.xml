@@ -30,14 +30,14 @@
                 <ImageView
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/television"
-                    android:id="@+id/main_tv"
+                    android:id="@+id/addTv"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
 
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/illumination"
-                    android:id="@+id/main_illumination"
+                    android:id="@+id/addIllumination"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
             </LinearLayout>
@@ -50,14 +50,14 @@
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/airconditioner"
-                    android:id="@+id/main_ac"
+                    android:id="@+id/addAC"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
 
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/audio"
-                    android:id="@+id/main_audio"
+                    android:id="@+id/addAudio"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
             </LinearLayout>
@@ -70,14 +70,14 @@
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/blinds"
-                    android:id="@+id/main_blinds"
+                    android:id="@+id/addBlinds"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
 
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/alarm"
-                    android:id="@+id/main_alarm"
+                    android:id="@+id/addAlarms"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
             </LinearLayout>
@@ -90,14 +90,14 @@
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/doors"
-                    android:id="@+id/main_doors"
+                    android:id="@+id/addDoors"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
 
                 <ImageView
                     android:layout_height="match_parent"
                     app:srcCompat="@drawable/manage"
-                    android:id="@+id/main_manage"
+                    android:id="@+id/addDivison"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
             </LinearLayout>
