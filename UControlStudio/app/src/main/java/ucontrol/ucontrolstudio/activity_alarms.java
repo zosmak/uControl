@@ -59,9 +59,9 @@ public class activity_alarms extends AppCompatActivity {
                               String res="", idDivisao, descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    idDivisao = obj.getString("idDivisao");
+                                   // idDivisao = obj.getString("idDivisao");
                                     descricao = obj.getString("descricao");
-                                    res += "idDivisao:"+ idDivisao + " descrição:" + descricao;
+                                    res += " descrição:" + descricao;
                                 }
                                 t.setText(res);
                             } catch (JSONException e) {
