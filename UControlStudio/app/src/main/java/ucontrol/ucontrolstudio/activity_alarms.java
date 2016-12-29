@@ -50,7 +50,7 @@ public class activity_alarms extends AppCompatActivity {
             t = (TextView)findViewById(R.id.teste);
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_divisoes.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_sensores.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
