@@ -28,29 +28,26 @@
         android:id="@+id/choosedivision"
         android:text="Choose Division" />
 
-    <Spinner
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner5" />
-
     <TextView
-        android:text="Televisions"
+        android:text="Doors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/televisions" />
+        android:id="@+id/doors" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/nametelevision"
-        android:text="Name of television" />
+        android:id="@+id/namedoor"
+        android:text="Name of door" />
 
-    <Spinner
-        android:layout_width="146dp"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner6" />
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText" />
 
     <ImageView
         android:layout_width="match_parent"

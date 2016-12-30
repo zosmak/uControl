@@ -34,23 +34,25 @@
         android:id="@+id/spinner5" />
 
     <TextView
-        android:text="Televisions"
+        android:text="Audio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/televisions" />
+        android:id="@+id/audio" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/nametelevision"
-        android:text="Name of television" />
+        android:id="@+id/nameaudio"
+        android:text="Name of audio" />
 
-    <Spinner
-        android:layout_width="146dp"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner6" />
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText" />
 
     <ImageView
         android:layout_width="match_parent"
