@@ -68,7 +68,14 @@
         <activity
             android:name=".addDivision"
             android:label="Add division"
-            android:theme="@style/AppThemeAc" ></activity>
+            android:theme="@style/AppThemeAc" />
+        <activity android:name=".addTelevision" />
+        <activity android:name=".addIllumination" />
+        <activity android:name=".addAirConditioner" />
+        <activity android:name=".addAudio" />
+        <activity android:name=".addBlinds" />
+        <activity android:name=".addAlarm" />
+        <activity android:name=".addDoors"></activity>
     </application>
 
 </manifest>
