@@ -57,13 +57,13 @@ public class activity_illumination extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> iluminacao = new ArrayList<>();
-                                ArrayAdapter adapterIluminacao = new ArrayAdapter(activity_illumination.this, android.R.layout.simple_list_item_1, iluminacao);
+                                ArrayAdapter adapterIluminacao = new ArrayAdapter(activity_illumination.this, android.R.layout.simple_list_item_checked, iluminacao);
 
 
                                 String res="", idIluminacao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    idIluminacao = obj.getString("idIluminacao");
+                                    idIluminacao = obj.getString("descricao");
                                     res += "" + iluminacao;
                                     iluminacao.add(idIluminacao);
                                 }

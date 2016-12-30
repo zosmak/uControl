@@ -59,7 +59,7 @@ public class activity_audio extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> dispositivos = new ArrayList<>();
-                                ArrayAdapter adapterDispositivos = new ArrayAdapter(activity_audio.this, android.R.layout.simple_list_item_1, dispositivos);
+                                ArrayAdapter adapterDispositivos = new ArrayAdapter(activity_audio.this, android.R.layout.simple_list_item_checked, dispositivos);
 
 
                                 String res="", idDispositivo, descricao;

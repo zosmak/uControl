@@ -50,13 +50,13 @@ public class activity_doors extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> portas = new ArrayList<>();
-                                ArrayAdapter adapterPortas = new ArrayAdapter(activity_doors.this, android.R.layout.simple_list_item_1, portas);
+                                ArrayAdapter adapterPortas = new ArrayAdapter(activity_doors.this, android.R.layout.simple_list_item_checked, portas);
 
 
                                 String idPorta;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    idPorta = obj.getString("idPorta");
+                                    idPorta = obj.getString("descricao");
                                     portas.add(idPorta);
                                 }
                                 listaPortas = (ListView)findViewById(R.id.lista_doors);

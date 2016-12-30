@@ -59,7 +59,7 @@ public class activity_alarms extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> alarmes = new ArrayList<>();
-                                ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_1, alarmes);
+                                ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_checked, alarmes);
 
 
                                 String res="", idDivisao, descricao;
