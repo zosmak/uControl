@@ -2,6 +2,7 @@ package ucontrol.ucontrolstudio;
 
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,7 +30,6 @@ import java.util.ArrayList;
 
 public class activity_alarms extends AppCompatActivity {
 
-    private TextView t;
     private ListView la;
 
 
@@ -47,7 +47,6 @@ public class activity_alarms extends AppCompatActivity {
     {
         try
         {
-            t = (TextView)findViewById(R.id.teste);
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_sensores.php";
@@ -71,7 +70,6 @@ public class activity_alarms extends AppCompatActivity {
                                     res += "" + descricao;
                                     alarmes.add(descricao);
                                 }
-                                t.setText(res);
                                 la = (ListView)findViewById(R.id.lista_alarms);
                                 la.setAdapter(adapterAlarmes);
                             } catch (JSONException e) {
@@ -112,6 +110,9 @@ public class activity_alarms extends AppCompatActivity {
         spinner.setAdapter(adapter);
         return true;
     }
+
+
+
 
 
 }

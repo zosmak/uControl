@@ -34,7 +34,7 @@ public class activity_doors extends AppCompatActivity {
     }
 
 
-    public  void  listarPortas()
+    public void listarPortas()
     {
         try
         {

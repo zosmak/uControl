@@ -47,10 +47,12 @@
         android:id="@+id/nametelevision"
         android:text="Name of television" />
 
-    <Spinner
-        android:layout_width="146dp"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner6" />
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nomeAddAlarm" />
 
     <ImageView
         android:layout_width="match_parent"

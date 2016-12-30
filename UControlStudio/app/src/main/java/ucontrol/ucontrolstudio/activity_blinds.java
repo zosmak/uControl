@@ -58,15 +58,13 @@ public class activity_blinds extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> estores = new ArrayList<>();
-                                ArrayAdapter adapterEstores = new ArrayAdapter(activity_blinds.this, android.R.layout.simple_list_item_1, estores);
+                                ArrayAdapter adapterEstores = new ArrayAdapter(activity_blinds.this, android.R.layout.simple_list_item_checked, estores);
 
-
-                                String res="", idEstore;
+                                String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    idEstore = obj.getString("idEstore");
-                                    res += "" + idEstore;
-                                    estores.add(idEstore);
+                                    descricao = obj.getString("descricao");
+                                    estores.add(descricao);
                                 }
                                 listaEstores = (ListView)findViewById(R.id.lista_blinds);
                                 listaEstores.setAdapter(adapterEstores);
