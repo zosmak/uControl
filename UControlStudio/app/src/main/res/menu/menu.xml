@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
         <item
-            android:id="@+id/spinner"
-            android:textColor="@android:color/white"
-            android:fontFamily="bariol"
-            android:title="ActionBar Spinner"
-            app:actionViewClass="android.widget.Spinner"
-            android:background="#ff00"
-            app:showAsAction="always" />
+            android:id="@+id/action_tv"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Television"/>
+
+        <item
+            android:id="@+id/action_illumination"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Illumination"/>
+        <item
+            android:id="@+id/action_ac"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Air Conditioner"/>
+        <item
+            android:id="@+id/action_audio"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Audio"/>
+        <item
+            android:id="@+id/action_blinds"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Blinds"/>
+        <item
+            android:id="@+id/action_alarm"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Alarm"/>
+        <item
+            android:id="@+id/action_doors"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Doors"/>
+        <item
+            android:id="@+id/action_manage"
+            android:orderInCategory="100"
+            app:showAsAction="never"
+            android:title="Manage"/>
+
 </menu>

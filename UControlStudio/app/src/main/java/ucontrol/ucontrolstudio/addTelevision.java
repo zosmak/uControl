@@ -11,7 +11,5 @@ public class addTelevision extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_television);
 
-        Intent intent = new Intent(getApplicationContext(), activity_television.class);
-        startActivity(intent);
     }
 }
