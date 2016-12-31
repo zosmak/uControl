@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_add_television"
+    android:id="@+id/activity_add_alarm"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -14,48 +14,59 @@
     android:weightSum="1"
     android:background="@color/colorPrimaryAlarms">
 
-    <TextView
-        android:text="Divisions"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/division" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:text="Choose division"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/division"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:fontFamily="Bariol"
+            android:textColor="@android:color/white" />
+
+        <Spinner
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerDivionAlarm"
+            android:layout_marginLeft="30dp"
+            android:layout_width="150dp" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Name of air alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarm"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:fontFamily="Bariol"
+        android:textColor="@color/white" />
 
     <EditText
-        android:layout_width="146dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/choosedivision"
-        android:text="Choose Division" />
+        android:textColor="@android:color/white"
+        android:id="@+id/nameNewAlarm"
+        android:layout_marginBottom="50dp"
+        android:inputType="textPersonName" />
 
-    <Spinner
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner5" />
-
-    <TextView
-        android:text="Televisions"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/televisions" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:text="Name of alarm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/namealarm" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/nomeAddAlarm" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/tvgoto"
-        android:id="@+id/imageView8" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/arcondicionadoconfirm"
+            android:id="@+id/confirmNewAlarm" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_add_television"
+    android:id="@+id/activity_add_blinds"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -14,48 +14,59 @@
     android:weightSum="1"
     android:background="@color/colorPrimaryBlinds">
 
-    <TextView
-        android:text="Divisions"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/division" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp">
 
-    <EditText
-        android:layout_width="146dp"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/choosedivision"
-        android:text="Choose Division" />
+        <TextView
+            android:text="Choose division"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/division"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:fontFamily="Bariol"
+            android:textColor="@android:color/white" />
 
-    <Spinner
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner5" />
-
-    <TextView
-        android:text="Blinds"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/blinds" />
+        <Spinner
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerDivionsBlinds"
+            android:layout_marginLeft="30dp"
+            android:layout_width="150dp" />
+    </LinearLayout>
 
     <TextView
         android:text="Name of blind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nameblind" />
+        android:id="@+id/blinds"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:fontFamily="Bariol"
+        android:textColor="@color/white" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText" />
+        android:textColor="@android:color/white"
+        android:id="@+id/nameNewBlind"
+        android:layout_marginBottom="50dp"
+        android:inputType="textPersonName" />
 
-    <ImageView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/estoreschange"
-        android:id="@+id/imageView7" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/arcondicionadoconfirm"
+            android:id="@+id/confirmNewAc" />
+    </LinearLayout>
 
 </LinearLayout>
