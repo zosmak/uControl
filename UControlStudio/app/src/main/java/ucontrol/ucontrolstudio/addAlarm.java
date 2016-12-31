@@ -10,8 +10,5 @@ public class addAlarm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
-
-        Intent intent = new Intent(getApplicationContext(), activity_alarms.class);
-        startActivity(intent);
     }
 }

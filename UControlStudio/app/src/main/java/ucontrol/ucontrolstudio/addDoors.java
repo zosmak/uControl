@@ -11,7 +11,5 @@ public class addDoors extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_doors);
 
-        Intent intent = new Intent(getApplicationContext(), activity_doors.class);
-        startActivity(intent);
     }
 }

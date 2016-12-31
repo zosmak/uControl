@@ -11,7 +11,5 @@ public class addBlinds extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_blinds);
 
-        Intent intent = new Intent(getApplicationContext(), activity_blinds.class);
-        startActivity(intent);
     }
 }

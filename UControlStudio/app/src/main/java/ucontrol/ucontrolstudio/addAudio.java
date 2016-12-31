@@ -11,7 +11,5 @@ public class addAudio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_audio);
 
-        Intent intent = new Intent(getApplicationContext(), activity_audio.class);
-        startActivity(intent);
     }
 }

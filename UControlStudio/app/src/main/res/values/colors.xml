@@ -17,6 +17,6 @@
     <color name="color_audio">#e8600c</color>
     <color name="color_doors">#ef3a24</color>
     <color name="colorPrimaryDoors">#ef3a24</color>
-    <color name="white">#fff</color>
+    <color name="white">#ffffff</color>
 
 </resources>

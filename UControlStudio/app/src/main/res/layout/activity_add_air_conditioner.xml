@@ -14,50 +14,59 @@
     android:weightSum="1"
     android:background="@color/colorPrimaryAc">
 
-    <TextView
-        android:text="Divisions"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/division" />
-
-    <EditText
-        android:layout_width="146dp"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/choosedivision"
-        android:text="Choose Division" />
-
-    <Spinner
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner5" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp">
 
     <TextView
-        android:text="Air Conditioner"
+        android:text="Choose division"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/division"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:fontFamily="Bariol"
+        android:textColor="@android:color/white" />
+
+        <Spinner
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerDivionsAc"
+            android:layout_marginLeft="30dp"
+            android:layout_width="150dp" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Name of air conditioner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/air_conditioner" />
+        android:id="@+id/air_conditioner"
+        android:textStyle="normal|bold"
+        android:textSize="20sp"
+        android:fontFamily="Bariol"
+        android:textColor="@color/white" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/nameairconditioner"
-        android:text="Name of air conditioner" />
+        android:textColor="@android:color/white"
+        android:id="@+id/nameNewAc"
+        android:layout_marginBottom="50dp"
+        android:inputType="textPersonName" />
 
-    <EditText
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText" />
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/arcondicionadoconfirm"
-        android:id="@+id/imageView5" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/arcondicionadoconfirm"
+            android:id="@+id/confirmNewAc" />
+    </LinearLayout>
 
 </LinearLayout>
