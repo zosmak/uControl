@@ -39,13 +39,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/audio" />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
         android:id="@+id/nameaudio"
-        android:text="Name of audio" />
+        android:text="name of audio" />
 
     <EditText
         android:layout_width="match_parent"

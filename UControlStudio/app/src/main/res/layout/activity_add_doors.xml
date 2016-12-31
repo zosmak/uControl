@@ -34,13 +34,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/doors" />
 
-    <EditText
+    <TextView
+        android:text="Name of door"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/namedoor"
-        android:text="Name of door" />
+        android:id="@+id/namedoor" />
 
     <EditText
         android:layout_width="match_parent"

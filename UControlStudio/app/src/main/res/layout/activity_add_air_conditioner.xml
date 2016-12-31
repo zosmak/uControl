@@ -39,13 +39,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/air_conditioner" />
 
-    <EditText
+    <TextView
+        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/nameairconditioner"
-        android:text="Name of air conditioner" />
+        android:id="@+id/nameairconditioner" />
 
     <EditText
         android:layout_width="match_parent"

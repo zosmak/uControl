@@ -39,13 +39,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/televisions" />
 
-    <EditText
+    <TextView
+        android:text="Name of alarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/namealarm"
-        android:text="Name of alarm" />
+        android:id="@+id/namealarm" />
 
     <EditText
         android:layout_width="match_parent"
