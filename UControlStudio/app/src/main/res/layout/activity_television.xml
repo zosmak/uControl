@@ -67,15 +67,31 @@
             android:layout_height="wrap_content"
             android:id="@+id/nbTv">
         </NumberPicker>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="270dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
 
         <ImageView
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             app:srcCompat="@drawable/tvgoto"
-            android:id="@+id/imageView3"
+            android:id="@+id/mudarCanal"
             android:layout_marginLeft="30dp"
-            android:layout_weight="1"
             android:layout_width="200dp" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/botao_recordings"
+            android:id="@+id/botaoGravar"
+            android:layout_weight="1"
+            android:layout_width="60dp"
+            android:layout_gravity="center" />
     </LinearLayout>
 
 

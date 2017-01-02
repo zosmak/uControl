@@ -39,7 +39,7 @@ public class activity_audio extends AppCompatActivity {
         nb = (NumberPicker) findViewById(R.id.nbAudio);
 
         nb.setMaxValue(50);
-        nb.setMinValue(1);
+        nb.setMinValue(0);
         nb.setWrapSelectorWheel(false);
         listarDispositivos();
     }
@@ -51,7 +51,7 @@ public class activity_audio extends AppCompatActivity {
         {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_dispositivos.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_audios.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {

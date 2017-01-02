@@ -10,11 +10,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class activity_tv_recordings extends AppCompatActivity {
 
     private Button tv;
+    private ListView lr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +38,8 @@ public class activity_tv_recordings extends AppCompatActivity {
 
         tv = (Button)findViewById(R.id.channels_recordings);
 
+        listarGravacoes();
+
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +47,55 @@ public class activity_tv_recordings extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    // Listar gravacoes
+    public  void  listarGravacoes()
+    {
+        try
+        {
+            RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_gravacoes.php";
+
+            JsonArrayRequest jsonRequest = new JsonArrayRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            // the response is already constructed as a JSONArray!
+                            try {
+
+                                final ArrayList<String> recordings = new ArrayList<>();
+                                ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_checked, recordings);
+
+                                String descricao;
+                                for (int i = 1; i < response.length(); ++i) {
+                                    JSONObject obj = response.getJSONObject(i);
+                                    descricao = obj.getString("descricao");
+                                    recordings.add(descricao);
+                                }
+                                lr= (ListView)findViewById(R.id.lista_recordings);
+                                lr.setAdapter(adapterRecordings);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+            queue.add(jsonRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+
     }
 
     @Override

@@ -36,6 +36,7 @@ public class addAirConditioner extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_air_conditioner);
+
         spinnerDivisoes();
 
         confirmar = (ImageView) findViewById(R.id.confirmNewAc);
@@ -56,7 +57,7 @@ public class addAirConditioner extends AppCompatActivity {
         {
             descricao = (EditText)findViewById(R.id.nameNewAc);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -127,7 +128,6 @@ public class addAirConditioner extends AppCompatActivity {
                             error.printStackTrace();
                         }
                     });
-            //Volley.newRequestQueue(this).add(jsonRequest);
             queue.add(jsonRequest);
         }
         catch(Exception ex)

@@ -11,16 +11,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -34,6 +37,7 @@ public class activity_television extends AppCompatActivity {
     private Button recordings;
     private NumberPicker nb;
     private ListView ltv;
+    private ImageView mudarCanal, gravar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,14 @@ public class activity_television extends AppCompatActivity {
 
         recordings = (Button) findViewById(R.id.recordings_tv);
         nb = (NumberPicker) findViewById(R.id.nbTv);
+        gravar = (ImageView)findViewById(R.id.botaoGravar);
+
+        gravar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gravar();
+            }
+        });
 
         recordings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +69,43 @@ public class activity_television extends AppCompatActivity {
 
         listarTv();
 
+    }
+
+    // Gravar
+    public  void gravar()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?descricao=jornal&horaInicio=0&horaFim=0";
+
+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            // Result handling
+                            Toast.makeText(activity_television.this, "Recorded", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    // Error handling
+                    Toast.makeText(activity_television.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
+                }
+            });
+            // Add the request to the queue
+            Volley.newRequestQueue(this).add(stringRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
     }
 
     // Listar tvs
@@ -84,7 +133,7 @@ public class activity_television extends AppCompatActivity {
                                     descricao = obj.getString("descricao");
                                     tv.add(descricao);
                                 }
-                                ltv= (ListView)findViewById(R.id.lista_ac);
+                                ltv= (ListView)findViewById(R.id.lista_tvs);
                                 ltv.setAdapter(adapterTv);
                             } catch (JSONException e) {
                                 e.printStackTrace();
