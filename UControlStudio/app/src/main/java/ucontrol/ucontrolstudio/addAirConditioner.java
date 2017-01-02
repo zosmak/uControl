@@ -49,14 +49,14 @@ public class addAirConditioner extends AppCompatActivity {
 
     }
 
-    // Inserir nova divisão
+    // Inserir novo ac
     public  void inserirAc()
     {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewAc);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

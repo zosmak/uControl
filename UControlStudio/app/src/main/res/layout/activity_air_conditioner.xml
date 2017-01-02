@@ -12,6 +12,13 @@
     tools:context="ucontrol.ucontrolstudio.activity_air_conditioner"
     android:background="@color/color_ac">
 
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginBottom="23dp">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -41,13 +48,93 @@
                 android:layout_height="wrap_content"
                 android:layout_width="180dp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
 
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:choiceMode="multipleChoice"
+                android:textColor="@android:color/white"
+                android:id="@+id/lista_ac"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:paddingBottom="50dp"
+            android:layout_height="150dp">
+
+            <TextView
+                android:text="Mode:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:layout_weight="1"
+                android:textSize="24sp"
+                android:fontFamily="Bariol"
+                android:textColor="@android:color/white"
+                android:paddingTop="35dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="50dp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RadioButton
+                        android:text="Cold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioColdAc"
+                        android:checked="true"
+                        android:fontFamily="Bariol"
+                        android:textColor="@android:color/white" />
+                    <RadioButton
+                        android:text="Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioRegularAc"
+                        android:fontFamily="Bariol"
+                        android:textColor="@android:color/white"/>
+                    <RadioButton
+                        android:text="Freeze"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioFreezeAc"
+                        android:fontFamily="Bariol"
+                        android:textColor="@android:color/white"/>
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="50dp">
+
+            <Switch
+                android:text="Power:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ilumination_switch"
+                android:textColor="@android:color/white"
+                android:textOn='On'
+                android:textOff='Off'
+                android:showText="true"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
             <TextView
                 android:text="Intensity:"
@@ -74,21 +161,6 @@
                 android:layout_marginTop="70dp" />
 
         </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <Switch
-                android:text="Power:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ilumination_switch"
-                android:textColor="@android:color/white"
-                android:textOn='On'
-                android:textOff='Off'
-                android:showText="true"
-                android:layout_weight="1" />
-        </LinearLayout>
     </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

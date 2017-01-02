@@ -81,7 +81,6 @@ public class activity_blinds extends AppCompatActivity {
                             error.printStackTrace();
                         }
                     });
-            //Volley.newRequestQueue(this).add(jsonRequest);
             queue.add(jsonRequest);
         }
         catch(Exception ex)

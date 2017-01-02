@@ -33,6 +33,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:choiceMode="multipleChoice"
             android:textColor="@android:color/white"
             android:id="@+id/lista_ilumination" />
 

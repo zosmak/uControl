@@ -33,7 +33,7 @@
 
         <Spinner
             android:layout_height="wrap_content"
-            android:id="@+id/spinnerDivionsAudio"
+            android:id="@+id/spinnerDivisionsAudio"
             android:layout_marginLeft="30dp"
             android:layout_width="150dp" />
     </LinearLayout>

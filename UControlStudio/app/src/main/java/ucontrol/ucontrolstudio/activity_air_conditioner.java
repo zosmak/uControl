@@ -9,14 +9,32 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class activity_air_conditioner extends AppCompatActivity {
 
     private ImageView ac_schedule;
     private NumberPicker nb;
+    private ListView lac;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +55,100 @@ public class activity_air_conditioner extends AppCompatActivity {
         nb.setMaxValue(40);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
+
+        listarAc();
+        //updateAc();
     }
+
+    // Listar ac
+    public  void  listarAc()
+    {
+        try
+        {
+            RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+
+            JsonArrayRequest jsonRequest = new JsonArrayRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            // the response is already constructed as a JSONArray!
+                            try {
+
+                                final ArrayList<String> ac = new ArrayList<>();
+                                ArrayAdapter adapterAc = new ArrayAdapter(activity_air_conditioner.this, android.R.layout.simple_list_item_checked, ac);
+
+                                String descricao;
+                                for (int i = 0; i < response.length(); ++i) {
+                                    JSONObject obj = response.getJSONObject(i);
+                                    descricao = obj.getString("descricao");
+                                    ac.add(descricao);
+                                }
+                                lac = (ListView)findViewById(R.id.lista_ac);
+                                lac.setAdapter(adapterAc);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+            queue.add(jsonRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+
+    }
+
+    // Atualizar ac
+    /*public  void updateAc()
+    {
+        try
+        {
+            descricao = (EditText)findViewById(R.id.nameNewAc);
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+
+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            // Result handling
+                            Toast.makeText(activity_air_conditioner.this, "Air conditioner updated", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    // Error handling
+                    Toast.makeText(activity_air_conditioner.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
+                }
+            });
+            // Add the request to the queue
+            Volley.newRequestQueue(this).add(stringRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+    }*/
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
