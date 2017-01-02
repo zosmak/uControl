@@ -80,7 +80,8 @@
         <activity android:name=".Add.addAlarm" />
         <activity android:name=".Add.addDoors" />
         <activity android:name=".activity_ac_schedule$remove_ac" />
-        <activity android:name=".Remove.remove_ac"></activity>
+        <activity android:name=".Remove.remove_ac" />
+        <activity android:name=".Remove.remove_audio"></activity>
     </application>
 
 </manifest>
