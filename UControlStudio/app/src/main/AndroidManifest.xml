@@ -66,19 +66,21 @@
             android:label="Remove"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".addDivision"
+            android:name=".Add.addDivision"
             android:label="Add division"
             android:theme="@style/AppThemeAc" />
-        <activity android:name=".addTelevision" />
-        <activity android:name=".addIllumination" />
+        <activity android:name=".Add.addTelevision" />
+        <activity android:name=".Add.addIllumination" />
         <activity
-            android:name=".addAirConditioner"
+            android:name=".Add.addAirConditioner"
             android:label="Add Air conditioner"
-            android:theme="@style/AppThemeAc"/>
-        <activity android:name=".addAudio" />
-        <activity android:name=".addBlinds" />
-        <activity android:name=".addAlarm" />
-        <activity android:name=".addDoors"></activity>
+            android:theme="@style/AppThemeAc" />
+        <activity android:name=".Add.addAudio" />
+        <activity android:name=".Add.addBlinds" />
+        <activity android:name=".Add.addAlarm" />
+        <activity android:name=".Add.addDoors" />
+        <activity android:name=".activity_ac_schedule$remove_ac" />
+        <activity android:name=".Remove.remove_ac"></activity>
     </application>
 
 </manifest>

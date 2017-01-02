@@ -3,9 +3,10 @@ include 'database.php';
 
 $pDatabase = Database::getInstance();
 
-if (isset($_GET['idEstore']) && isset($_GET['divisao']) && isset($_GET['estado']) && isset($_GET['intensidade']))
+
+if (isset($_GET['descricao']) && isset($_GET['divisao']) && isset($_GET['posicao']))
 {
-$sql = "INSERT INTO estore (idEstore, divisao, estado,intensidade) VALUES ('".$_GET['idEstore']."','".$_GET['divisao']."','".$_GET['estado']."','".$_GET['intensidade']."');";
+$sql = "INSERT INTO estore(descricao, divisao, posicao) VALUES ('".$_GET['descricao']."','".$_GET['divisao']."','".$_GET['posicao']."');";
 $pDatabase->query($sql);
 $outp ="Inserted";
 }

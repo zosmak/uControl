@@ -1,6 +1,5 @@
-package ucontrol.ucontrolstudio;
+package ucontrol.ucontrolstudio.Add;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,37 +23,40 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class addAlarm extends AppCompatActivity {
+import ucontrol.ucontrolstudio.R;
+
+public class addTelevision extends AppCompatActivity {
 
     private EditText descricao;
     private ImageView confirmar;
-    private Spinner spinnerDiv, spinnerSensor;
+    private Spinner spinner;
     private String idDivisao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_alarm);
+        setContentView(R.layout.activity_add_television);
+
         spinnerDivisoes();
 
-        confirmar = (ImageView) findViewById(R.id.confirmNewAlarm);
+        confirmar = (ImageView) findViewById(R.id.confirmNewAc);
 
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //inserirAlarm();
+                inserirTv();
             }
         });
     }
 
-    // Inserir novo alarme
-    public  void inserirAlarm()
+    // Inserir nova tv
+    public  void inserirTv()
     {
         try
         {
-            descricao = (EditText)findViewById(R.id.nameNewAlarm);
+            descricao = (EditText)findViewById(R.id.nameNewTV);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_tv.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&canal=1&gravacao=1&volume=0";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -63,7 +65,7 @@ public class addAlarm extends AppCompatActivity {
                         public void onResponse(String response) {
 
                             // Result handling
-                            Toast.makeText(addAlarm.this, "New air conditioner added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(addTelevision.this, "New television added", Toast.LENGTH_SHORT).show();
 
                         }
                     }, new Response.ErrorListener() {
@@ -71,7 +73,7 @@ public class addAlarm extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
 
                     // Error handling
-                    Toast.makeText(addAlarm.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addTelevision.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                     error.printStackTrace();
                 }
             });
@@ -100,7 +102,7 @@ public class addAlarm extends AppCompatActivity {
                             // the response is already constructed as a JSONArray!
                             try {
                                 final ArrayList<String> divisoes = new ArrayList<>();
-                                ArrayAdapter adapterDivisoes = new ArrayAdapter(addAlarm.this, android.R.layout.simple_list_item_1, divisoes);
+                                ArrayAdapter adapterDivisoes = new ArrayAdapter(addTelevision.this, android.R.layout.simple_list_item_1, divisoes);
 
 
                                 String res="", descricao;
@@ -112,8 +114,8 @@ public class addAlarm extends AppCompatActivity {
                                     divisoes.add(descricao);
                                 }
                                 // colocar a informacao na lista
-                                spinnerDiv = (Spinner)findViewById(R.id.spinnerDivisionAlarm);
-                                spinnerDiv.setAdapter(adapterDivisoes);
+                                spinner = (Spinner)findViewById(R.id.spinnerDivisionsTV);
+                                spinner.setAdapter(adapterDivisoes);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

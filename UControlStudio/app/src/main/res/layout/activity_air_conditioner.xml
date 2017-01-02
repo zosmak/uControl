@@ -154,7 +154,7 @@
 
             <ImageView
                 app:srcCompat="@drawable/arcondicionadochange"
-                android:id="@+id/imageButton"
+                android:id="@+id/changeAc"
                 android:paddingLeft="50dp"
                 android:layout_width="wrap_content"
                 android:paddingBottom="40dp"

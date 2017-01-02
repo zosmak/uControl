@@ -1,7 +1,7 @@
 <?php
 include 'database.php';
 $pDatabase = Database::getInstance();
-$sql = "SELECT * FROM divisao";
+$sql = "SELECT idDivisao, descricao FROM divisao";
 $result = $pDatabase->query($sql);
 $rows = array();
 while($temp = mysqli_fetch_assoc($result)) {

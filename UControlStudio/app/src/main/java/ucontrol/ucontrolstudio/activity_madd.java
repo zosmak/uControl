@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import ucontrol.ucontrolstudio.Add.addAirConditioner;
+import ucontrol.ucontrolstudio.Add.addAlarm;
+import ucontrol.ucontrolstudio.Add.addDivision;
+import ucontrol.ucontrolstudio.Add.addTelevision;
+
 public class activity_madd extends AppCompatActivity {
 
     private ImageView adddivison, addTv, addAc, addAudio, addIllumination, addBlinds, addDoors, addAlarms;
@@ -51,7 +56,7 @@ public class activity_madd extends AppCompatActivity {
         addAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), addAudio.class);
+                Intent intent = new Intent(getApplicationContext(), ucontrol.ucontrolstudio.Add.addAudio.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +64,7 @@ public class activity_madd extends AppCompatActivity {
         addIllumination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), addIllumination.class);
+                Intent intent = new Intent(getApplicationContext(), ucontrol.ucontrolstudio.Add.addIllumination.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +72,7 @@ public class activity_madd extends AppCompatActivity {
         addBlinds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), addBlinds.class);
+                Intent intent = new Intent(getApplicationContext(), ucontrol.ucontrolstudio.Add.addBlinds.class);
                 startActivity(intent);
             }
         });
@@ -75,7 +80,7 @@ public class activity_madd extends AppCompatActivity {
         addDoors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), addDoors.class);
+                Intent intent = new Intent(getApplicationContext(), ucontrol.ucontrolstudio.Add.addDoors.class);
                 startActivity(intent);
             }
         });

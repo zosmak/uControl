@@ -3,9 +3,9 @@ include 'database.php';
 
 $pDatabase = Database::getInstance();
 
-if (isset($_GET['idSensor']) && isset($_GET['descricao'])
+if (isset($_GET['descricao']))
 {
-$sql = "INSERT INTO sensor (idSensor, descricao) VALUES ('".$_GET['idSensor']."','".$_GET['descricao']."');";
+$sql = "INSERT INTO sensor (descricao) VALUES ('".$_GET['descricao']."');";
 $pDatabase->query($sql);
 $outp ="Inserted";
 }

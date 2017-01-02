@@ -35,6 +35,7 @@ public class activity_air_conditioner extends AppCompatActivity {
     private ImageView ac_schedule;
     private NumberPicker nb;
     private ListView lac;
+    private ImageView change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class activity_air_conditioner extends AppCompatActivity {
 
         ac_schedule = (ImageView)findViewById(R.id.ac_schedule);
         nb = (NumberPicker) findViewById(R.id.nbAc);
+        change = (ImageView)findViewById(R.id.changeAc);
 
         ac_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,12 +54,18 @@ public class activity_air_conditioner extends AppCompatActivity {
             }
         });
 
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //updateAc();
+            }
+        });
+
         nb.setMaxValue(40);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
 
         listarAc();
-        //updateAc();
     }
 
     // Listar ac
@@ -114,9 +122,7 @@ public class activity_air_conditioner extends AppCompatActivity {
     {
         try
         {
-            descricao = (EditText)findViewById(R.id.nameNewAc);
-
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_ac.php?estado=0&temperatura=15&modo=regular";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

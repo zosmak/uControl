@@ -1,6 +1,5 @@
-package ucontrol.ucontrolstudio;
+package ucontrol.ucontrolstudio.Add;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +23,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class addIllumination extends AppCompatActivity {
+import ucontrol.ucontrolstudio.R;
+
+public class addAirConditioner extends AppCompatActivity {
 
     private EditText descricao;
     private ImageView confirmar;
@@ -34,7 +35,7 @@ public class addIllumination extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_illumination);
+        setContentView(R.layout.activity_add_air_conditioner);
 
         spinnerDivisoes();
 
@@ -43,19 +44,20 @@ public class addIllumination extends AppCompatActivity {
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inserirIllumination();
+                inserirAc();
             }
         });
+
     }
 
-    // Inserir nova iluminação
-    public void inserirIllumination()
+    // Inserir novo ac
+    public  void inserirAc()
     {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewAc);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_iluminacao.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&intensidade=0";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -64,7 +66,7 @@ public class addIllumination extends AppCompatActivity {
                         public void onResponse(String response) {
 
                             // Result handling
-                            Toast.makeText(addIllumination.this, "New ligth added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(addAirConditioner.this, "New air conditioner added", Toast.LENGTH_SHORT).show();
 
                         }
                     }, new Response.ErrorListener() {
@@ -72,7 +74,7 @@ public class addIllumination extends AppCompatActivity {
                 public void onErrorResponse(VolleyError error) {
 
                     // Error handling
-                    Toast.makeText(addIllumination.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(addAirConditioner.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                     error.printStackTrace();
                 }
             });
@@ -101,7 +103,7 @@ public class addIllumination extends AppCompatActivity {
                             // the response is already constructed as a JSONArray!
                             try {
                                 final ArrayList<String> divisoes = new ArrayList<>();
-                                ArrayAdapter adapterDivisoes = new ArrayAdapter(addIllumination.this, android.R.layout.simple_list_item_1, divisoes);
+                                ArrayAdapter adapterDivisoes = new ArrayAdapter(addAirConditioner.this, android.R.layout.simple_list_item_1, divisoes);
 
 
                                 String res="", descricao;
@@ -113,7 +115,7 @@ public class addIllumination extends AppCompatActivity {
                                     divisoes.add(descricao);
                                 }
                                 // colocar a informacao na lista
-                                spinner = (Spinner)findViewById(R.id.spinnerDivisionsIllumination);
+                                spinner = (Spinner)findViewById(R.id.spinnerDivionsAc);
                                 spinner.setAdapter(adapterDivisoes);
                             } catch (JSONException e) {
                                 e.printStackTrace();
