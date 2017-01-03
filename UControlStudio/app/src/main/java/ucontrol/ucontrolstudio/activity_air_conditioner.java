@@ -8,12 +8,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,6 +33,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import ucontrol.ucontrolstudio.Remove.remove_ac;
 
 public class activity_air_conditioner extends AppCompatActivity {
 
@@ -36,6 +44,9 @@ public class activity_air_conditioner extends AppCompatActivity {
     private NumberPicker nb;
     private ListView lac;
     private ImageView change;
+    private String estado, modo, temperatura, idArCondicionado;
+    private RadioButton rcold, rregular, rfreeze;
+    private Switch s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +56,10 @@ public class activity_air_conditioner extends AppCompatActivity {
         ac_schedule = (ImageView)findViewById(R.id.ac_schedule);
         nb = (NumberPicker) findViewById(R.id.nbAc);
         change = (ImageView)findViewById(R.id.changeAc);
+        rcold = (RadioButton)findViewById(R.id.radioColdAc);
+        rregular = (RadioButton)findViewById(R.id.radioRegularAc);
+        rfreeze = (RadioButton)findViewById(R.id.radioFreezeAc);
+        s = (Switch) findViewById(R.id.ac_switch);
 
         ac_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +72,7 @@ public class activity_air_conditioner extends AppCompatActivity {
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //updateAc();
+                updateAc();
             }
         });
 
@@ -91,10 +106,23 @@ public class activity_air_conditioner extends AppCompatActivity {
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
+                                    idArCondicionado = obj.getString("idArCondicionado");
+                                    temperatura = obj.getString("temperatura");
+                                    modo = obj.getString("modo");
+                                    estado = obj.getString("estado");
                                     ac.add(descricao);
                                 }
                                 lac = (ListView)findViewById(R.id.lista_ac);
                                 lac.setAdapter(adapterAc);
+
+                                lac.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        i++;
+                                        idArCondicionado = String.valueOf(i);
+                                        //Toast.makeText(activity_air_conditioner.this, idArCondicionado, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -118,33 +146,79 @@ public class activity_air_conditioner extends AppCompatActivity {
     }
 
     // Atualizar ac
-    /*public  void updateAc()
+    public void updateAc()
     {
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_ac.php?estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_ac.php";
 
-
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+                            Toast.makeText(activity_air_conditioner.this, "Updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(activity_air_conditioner.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            error.printStackTrace();
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams()
+                {
+                    Map<String, String>  params = new HashMap<>();
+                    // the POST parameters:
+                    params.put("idArCondicionado", idArCondicionado);
 
-                            // Result handling
-                            Toast.makeText(activity_air_conditioner.this, "Air conditioner updated", Toast.LENGTH_SHORT).show();
+                    // ver qual o modo
+                    if(rcold.isChecked()){
+                        modo = rcold.getText().toString();
+                    }
+                    else if(rregular.isChecked()){
+                        modo = rregular.getText().toString();
+                    }
+                    else if(rfreeze.isChecked()){
+                        modo = rfreeze.getText().toString();
+                    }
+
+                    // ver qual a temperatura
+                    temperatura = String.valueOf(nb.getValue());
+
+                    // ver se está ligado ou não
+                    /*s.setChecked(true);
+                    s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                            if(isChecked){
+                                Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
+                            }
 
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
+                    });
 
-                    // Error handling
-                    Toast.makeText(activity_air_conditioner.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
-                    error.printStackTrace();
+                    if (s.isChecked()) {
+                        Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
+                    }*/
+
+                    estado = String.valueOf(1);
+
+                    params.put("modo", modo);
+                    params.put("estado", estado);
+                    params.put("temperatura", temperatura);
+                    return params;
                 }
-            });
-            // Add the request to the queue
-            Volley.newRequestQueue(this).add(stringRequest);
+            };
+            Volley.newRequestQueue(this).add(postRequest);
         }
         catch(Exception ex)
         {
@@ -152,7 +226,7 @@ public class activity_air_conditioner extends AppCompatActivity {
         finally
         {
         }
-    }*/
+    }
 
 
 

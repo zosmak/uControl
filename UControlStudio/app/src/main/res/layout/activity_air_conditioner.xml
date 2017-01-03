@@ -124,7 +124,7 @@
                 android:text="Power:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ilumination_switch"
+                android:id="@+id/ac_switch"
                 android:textColor="@android:color/white"
                 android:textOn='On'
                 android:textOff='Off'
@@ -138,7 +138,7 @@
             android:layout_height="200dp">
 
             <TextView
-                android:text="Intensity:"
+                android:text="Temperature: "
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:textColor="@android:color/white"
