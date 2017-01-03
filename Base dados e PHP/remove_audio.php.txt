@@ -1,0 +1,11 @@
+<?php
+include 'database.php';
+$pDatabase = Database::getInstance();
+if (isset($_POST['idAudio']))
+{
+$sql = "DELETE FROM audio WHERE idAudio='".$_POST['idAudio']."';";
+$pDatabase->query($sql);
+echo "Removed";
+}
+else echo "Not valid";
+?>

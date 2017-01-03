@@ -1,0 +1,11 @@
+<?php
+include 'database.php';
+$pDatabase = Database::getInstance();
+if (isset($_POST['idGravacao']))
+{
+$sql = "DELETE FROM gravacoes WHERE idGravacao='".$_POST['idGravacao']."';";
+$pDatabase->query($sql);
+echo "Removed";
+}
+else echo "Not valid";
+?>

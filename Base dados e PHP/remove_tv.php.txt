@@ -1,0 +1,11 @@
+<?php
+include 'database.php';
+$pDatabase = Database::getInstance();
+if (isset($_POST['idTv']))
+{
+$sql = "DELETE FROM tv WHERE idTv='".$_POST['idTv']."';";
+$pDatabase->query($sql);
+echo "Removed";
+}
+else echo "Not valid";
+?>
