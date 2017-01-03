@@ -176,14 +176,14 @@ public class remove_audio extends AppCompatActivity {
 
         spinnerAudio();
 
-        confirmar = (ImageView) findViewById(R.id.confirmRemoverAudio);
+        //confirmar = (ImageView) findViewById(R.id.confirmRemoverAudio);
 
-        confirmar.setOnClickListener(new View.OnClickListener() {
+        /*confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 removerAudio();
             }
-        });
+        });*/
 
     }
 
@@ -200,8 +200,8 @@ public class remove_audio extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
-                                final ArrayList<String> acs = new ArrayList<>();
-                                ArrayAdapter adapterAc = new ArrayAdapter(remove_audio.this, android.R.layout.simple_list_item_1, acs);
+                                final ArrayList<String> audio = new ArrayList<>();
+                                ArrayAdapter adapterAudio = new ArrayAdapter(remove_audio.this, android.R.layout.simple_list_item_1, audio);
 
 
                                 String descricao;
@@ -209,11 +209,11 @@ public class remove_audio extends AppCompatActivity {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idAudio = obj.getString("idAudio");
-                                    acs.add(descricao);
+                                    audio.add(descricao);
                                 }
                                 // colocar a informacao na lista
                                 spinner = (Spinner) findViewById(R.id.spinnerAlarmeRemove);
-                                spinner.setAdapter(adapterAc);
+                                spinner.setAdapter(adapterAudio);
 
                                 // saber a posição no spinner
                                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -249,7 +249,7 @@ public class remove_audio extends AppCompatActivity {
     }
 
 
-    public void removerAc()
+    public void removerAudio()
     {
         try
         {
@@ -287,7 +287,6 @@ public class remove_audio extends AppCompatActivity {
         finally
         {
         }
-    }
 }
 
     // opções do canto sup. direito

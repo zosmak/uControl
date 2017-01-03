@@ -32,12 +32,7 @@ public class remove_porta extends AppCompatActivity {
 
     private ImageView confirmar;
     private Spinner spinner;
-    private String idPorta;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    private String idPorta;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +57,7 @@ public class remove_porta extends AppCompatActivity {
         try {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_portas.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -70,8 +65,8 @@ public class remove_porta extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
-                                final ArrayList<String> acs = new ArrayList<>();
-                                ArrayAdapter adapterAc = new ArrayAdapter(remove_porta.this, android.R.layout.simple_list_item_1, acs);
+                                final ArrayList<String> portas = new ArrayList<>();
+                                ArrayAdapter adapterPortas = new ArrayAdapter(remove_porta.this, android.R.layout.simple_list_item_1, portas);
 
 
                                 String descricao;
@@ -79,11 +74,11 @@ public class remove_porta extends AppCompatActivity {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idPorta = obj.getString("idPorta");
-                                    acs.add(descricao);
+                                    portas.add(descricao);
                                 }
                                 // colocar a informacao na lista
                                 spinner = (Spinner) findViewById(R.id.spinnerPortaRemove);
-                                spinner.setAdapter(adapterAc);
+                                spinner.setAdapter(adapterPortas);
 
                                 // saber a posição no spinner
                                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,8 +86,6 @@ public class remove_porta extends AppCompatActivity {
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         position++;
                                         idPorta = String.valueOf(position);
-                                        // testar se está a passar o id do ac
-                                        //Toast.makeText(remove_ac.this, idArCondicionado, Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override

@@ -34,11 +34,6 @@ public class remove_gravacoes extends AppCompatActivity {
     private ImageView confirmar;
     private Spinner spinner;
     private String idGravacao;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +53,12 @@ public class remove_gravacoes extends AppCompatActivity {
 
     }
 
-    // listar acs no spinner
+    // listar gravacoes no spinner
     public void spinnerGravacoes() {
         try {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_gravacoes.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -71,8 +66,8 @@ public class remove_gravacoes extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
-                                final ArrayList<String> acs = new ArrayList<>();
-                                ArrayAdapter adapterAc = new ArrayAdapter(remove_gravacoes.this, android.R.layout.simple_list_item_1, acs);
+                                final ArrayList<String> gravacoes = new ArrayList<>();
+                                ArrayAdapter adapterGravacoes = new ArrayAdapter(remove_gravacoes.this, android.R.layout.simple_list_item_1, gravacoes);
 
 
                                 String descricao;
@@ -80,11 +75,11 @@ public class remove_gravacoes extends AppCompatActivity {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idGravacao = obj.getString("idGravacao");
-                                    acs.add(descricao);
+                                    gravacoes.add(descricao);
                                 }
                                 // colocar a informacao na lista
                                 spinner = (Spinner) findViewById(R.id.spinnerGravacoesRemove);
-                                spinner.setAdapter(adapterAc);
+                                spinner.setAdapter(adapterGravacoes);
 
                                 // saber a posição no spinner
                                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -92,8 +87,6 @@ public class remove_gravacoes extends AppCompatActivity {
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         position++;
                                         idGravacao = String.valueOf(position);
-                                        // testar se está a passar o id do ac
-                                        //Toast.makeText(remove_ac.this, idArCondicionado, Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override

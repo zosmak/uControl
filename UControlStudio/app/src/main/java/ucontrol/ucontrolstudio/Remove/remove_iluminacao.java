@@ -33,11 +33,6 @@ public class remove_iluminacao extends AppCompatActivity {
     private ImageView confirmar;
     private Spinner spinner;
     private String idIluminacao;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +52,12 @@ public class remove_iluminacao extends AppCompatActivity {
 
     }
 
-    // listar acs no spinner
+    // listar iluminacao no spinner
     public void spinnerIluminacao() {
         try {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_iluminacao.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -70,8 +65,8 @@ public class remove_iluminacao extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
-                                final ArrayList<String> acs = new ArrayList<>();
-                                ArrayAdapter adapterAc = new ArrayAdapter(remove_iluminacao.this, android.R.layout.simple_list_item_1, acs);
+                                final ArrayList<String> ilu = new ArrayList<>();
+                                ArrayAdapter adapterIlu = new ArrayAdapter(remove_iluminacao.this, android.R.layout.simple_list_item_1, ilu);
 
 
                                 String descricao;
@@ -79,11 +74,11 @@ public class remove_iluminacao extends AppCompatActivity {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idIluminacao = obj.getString("idIluminacao");
-                                    acs.add(descricao);
+                                    ilu.add(descricao);
                                 }
                                 // colocar a informacao na lista
                                 spinner = (Spinner) findViewById(R.id.spinnerIluminacaoRemove);
-                                spinner.setAdapter(adapterAc);
+                                spinner.setAdapter(adapterIlu);
 
                                 // saber a posição no spinner
                                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,8 +86,6 @@ public class remove_iluminacao extends AppCompatActivity {
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         position++;
                                         idIluminacao = String.valueOf(position);
-                                        // testar se está a passar o id do ac
-                                        //Toast.makeText(remove_ac.this, idArCondicionado, Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override

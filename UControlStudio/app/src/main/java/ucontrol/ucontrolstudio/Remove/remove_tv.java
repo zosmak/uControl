@@ -57,12 +57,12 @@ public class remove_tv extends AppCompatActivity {
 
     }
 
-    // listar acs no spinner
+    // listar tvs no spinner
     public void spinnerTv() {
         try {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_tvs.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -70,8 +70,8 @@ public class remove_tv extends AppCompatActivity {
                         public void onResponse(JSONArray response) {
                             // the response is already constructed as a JSONArray!
                             try {
-                                final ArrayList<String> acs = new ArrayList<>();
-                                ArrayAdapter adapterAc = new ArrayAdapter(remove_tv.this, android.R.layout.simple_list_item_1, acs);
+                                final ArrayList<String> tvs = new ArrayList<>();
+                                ArrayAdapter adapterTvs = new ArrayAdapter(remove_tv.this, android.R.layout.simple_list_item_1, tvs);
 
 
                                 String descricao;
@@ -79,11 +79,11 @@ public class remove_tv extends AppCompatActivity {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idTv = obj.getString("idTv");
-                                    acs.add(descricao);
+                                    tvs.add(descricao);
                                 }
                                 // colocar a informacao na lista
                                 spinner = (Spinner) findViewById(R.id.spinnerTvRemove);
-                                spinner.setAdapter(adapterAc);
+                                spinner.setAdapter(adapterTvs);
 
                                 // saber a posição no spinner
                                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,8 +91,6 @@ public class remove_tv extends AppCompatActivity {
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         position++;
                                         idTv = String.valueOf(position);
-                                        // testar se está a passar o id do ac
-                                        //Toast.makeText(remove_ac.this, idArCondicionado, Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override
