@@ -81,11 +81,22 @@
         <activity android:name=".Add.addDoors" />
         <activity android:name=".activity_ac_schedule$remove_ac" />
         <activity android:name=".Remove.remove_ac" />
-        <activity android:name=".Remove.remove_audio"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".Remove.remove_audio" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Remove.remove_alarme" />
+        <activity android:name=".Remove.remove_divisao" />
+        <activity android:name=".Remove.remove_estore" />
+        <activity android:name=".Remove.remove_gravacoes" />
+        <activity android:name=".Remove.remove_iluminacao" />
+        <activity android:name=".Remove.remove_porta" />
+        <activity android:name=".Remove.remove_tv"></activity>
     </application>
 
 </manifest>
