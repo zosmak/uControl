@@ -187,7 +187,7 @@ public class remove_audio extends AppCompatActivity {
 
     }
 
-    // listar acs no spinner
+    // listar audios no spinner
     public void spinnerAudio() {
         try {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());

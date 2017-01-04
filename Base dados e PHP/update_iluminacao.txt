@@ -1,0 +1,11 @@
+<?php
+include 'database.php';
+$pDatabase = Database::getInstance();
+if (isset($_POST['estado']) && isset($_POST['descricao']) && isset($_POST['divisao']) && isset($_POST['idPorta']))
+{
+$sql = "UPDATE porta SET estado='".$_POST['estado']."',descricao='".$_POST['descricao']."' ,divisao='".$_POST['divisao']."' WHERE idPorta='".$_POST['idPorta']."';";
+$pDatabase->query($sql);
+echo "Updated";
+}
+else echo "Not valid";
+?>

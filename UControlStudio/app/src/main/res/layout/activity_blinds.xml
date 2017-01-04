@@ -51,7 +51,8 @@
                 android:textOn='Open'
                 android:textOff='Closed'
                 android:showText="true"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@android:style/Widget.Holo.Light.CompoundButton.Switch" />
         </LinearLayout>
 
         <LinearLayout

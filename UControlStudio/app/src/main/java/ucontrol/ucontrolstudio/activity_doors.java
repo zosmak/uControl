@@ -9,13 +9,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -23,10 +26,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class activity_doors extends AppCompatActivity {
 
     private ListView listaPortas;
+    private String estado, idPorta, divisao, descricao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +65,11 @@ public class activity_doors extends AppCompatActivity {
                                 String idPorta;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    idPorta = obj.getString("descricao");
-                                    portas.add(idPorta);
+                                    descricao = obj.getString("descricao");
+                                    idPorta = obj.getString("idPorta");
+                                    divisao = obj.getString("divisao");
+                                    estado = obj.getString("estado");
+                                    portas.add(descricao);
                                 }
                                 listaPortas = (ListView)findViewById(R.id.lista_doors);
                                 listaPortas.setAdapter(adapterPortas);
@@ -85,6 +95,77 @@ public class activity_doors extends AppCompatActivity {
         }
 
     }
+
+
+
+    // Atualizar Portas
+    public void updateDoors()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_porta.php";
+
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(activity_doors.this, "Updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(activity_doors.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            error.printStackTrace();
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams()
+                {
+                    Map<String, String>  params = new HashMap<>();
+                    // the POST parameters:
+                    params.put("idPorta", idPorta);
+
+
+                    // ver se está ligado ou não
+                    /*s.setChecked(true);
+                    s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                            if(isChecked){
+                                Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+
+                    if (s.isChecked()) {
+                        Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
+                    }*/
+
+                    estado = String.valueOf(1);
+
+                    params.put("estado", estado);
+                    return params;
+                }
+            };
+            Volley.newRequestQueue(this).add(postRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
