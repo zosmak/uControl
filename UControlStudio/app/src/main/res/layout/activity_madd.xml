@@ -5,10 +5,6 @@
     android:id="@+id/activity_madd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ucontrol.ucontrolstudio.activity_madd">
 
     <ScrollView
@@ -24,82 +20,70 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:weightSum="1">
+                android:layout_height="160dp">
 
                 <ImageView
-                    android:layout_height="wrap_content"
                     app:srcCompat="@drawable/television"
                     android:id="@+id/addTv"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/illumination"
                     android:id="@+id/addIlumination"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:weightSum="1">
+                android:layout_height="160dp">
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/airconditioner"
                     android:id="@+id/addAC"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/audio"
                     android:id="@+id/addAudio"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:weightSum="1">
+                android:layout_height="160dp">
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/blinds"
                     android:id="@+id/addBlinds"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/alarm"
                     android:id="@+id/addAlarms"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:weightSum="1">
+                android:layout_height="160dp">
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/doors"
                     android:id="@+id/addDoors"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
 
                 <ImageView
-                    android:layout_height="match_parent"
-                    app:srcCompat="@drawable/manage"
-                    android:id="@+id/addDivison"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
+                    app:srcCompat="@drawable/addDivision"
+                    android:id="@+id/addDivision"
+                    android:layout_height="180dp"
+                    android:layout_width="180dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
