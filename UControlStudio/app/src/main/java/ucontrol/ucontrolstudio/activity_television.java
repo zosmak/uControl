@@ -31,6 +31,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class activity_television extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class activity_television extends AppCompatActivity {
     private NumberPicker nb;
     private ListView ltv;
     private ImageView mudarCanal, gravar;
+    private String idTv, descricao, divisao, estado, canal,gravacao, volume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,6 +159,55 @@ public class activity_television extends AppCompatActivity {
         }
 
     }
+
+
+
+    // Atualizar Tv
+    public void updateTv()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_tv.php";
+
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(activity_television.this, "Updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(activity_television.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            error.printStackTrace();
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams()
+                {
+                    Map<String, String>  params = new HashMap<>();
+                    // the POST parameters:
+                    params.put("idTv", idTv);
+
+                    // ver qual o volume
+                    volume = String.valueOf(nb.getValue());
+
+                    params.put("volume", volume);
+                    return params;
+                }
+            };
+            Volley.newRequestQueue(this).add(postRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
