@@ -24,27 +24,18 @@
 
                 <ImageView
                     app:srcCompat="@drawable/television"
-<<<<<<< HEAD
                     android:id="@+id/removeMainTv"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
-=======
-                    android:id="@+id/removeTv"
+                    android:layout_weight="0.50"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
->>>>>>> origin/master
 
                 <ImageView
                     app:srcCompat="@drawable/illumination"
-<<<<<<< HEAD
                     android:id="@+id/removeMainIllumination"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
-=======
-                    android:id="@+id/removeIllumination"
+                    android:layout_weight="0.50"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
->>>>>>> origin/master
+
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -59,15 +50,11 @@
 
                 <ImageView
                     app:srcCompat="@drawable/audio"
-<<<<<<< HEAD
                     android:id="@+id/removeMainAudio"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
-=======
-                    android:id="@+id/removeAudio"
+                    android:layout_weight="0.50"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
->>>>>>> origin/master
+
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -76,27 +63,18 @@
 
                 <ImageView
                     app:srcCompat="@drawable/blinds"
-<<<<<<< HEAD
                     android:id="@+id/removeMainBlinds"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
-=======
-                    android:id="@+id/removeBlinds"
+                    android:layout_weight="0.50"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
->>>>>>> origin/master
 
                 <ImageView
                     app:srcCompat="@drawable/alarm"
-<<<<<<< HEAD
                     android:id="@+id/removeMainAlarm"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
-=======
-                    android:id="@+id/removeAlarm"
+                    android:layout_weight="0.50"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
->>>>>>> origin/master
+
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -104,29 +82,25 @@
                 android:layout_height="160dp">
 
                 <ImageView
+                    android:layout_height="180dp"
                     app:srcCompat="@drawable/doors"
-<<<<<<< HEAD
                     android:id="@+id/removeMainDoors"
                     android:layout_width="match_parent"
                     android:layout_weight="0.50" />
 
                 <ImageView
-                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/manage"
-                    android:id="@+id/removeMainDivision"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.50" />
-=======
+                    android:layout_weight="0.50"
                     android:id="@+id/removeDoors"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
 
                 <ImageView
                     app:srcCompat="@drawable/removedivision"
-                    android:id="@+id/removeDivision"
+                    android:id="@+id/removeMainDivision"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
->>>>>>> origin/master
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

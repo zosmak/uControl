@@ -41,11 +41,7 @@ public class remove_ac extends AppCompatActivity {
     private ImageView confirmar;
     private Spinner spinner;
     private String idArCondicionado;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

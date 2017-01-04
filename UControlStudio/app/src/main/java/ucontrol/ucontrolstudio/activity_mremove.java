@@ -9,8 +9,10 @@ import android.widget.ImageView;
 import ucontrol.ucontrolstudio.Remove.remove_ac;
 import ucontrol.ucontrolstudio.Remove.remove_alarme;
 import ucontrol.ucontrolstudio.Remove.remove_audio;
+import ucontrol.ucontrolstudio.Remove.remove_divisao;
 import ucontrol.ucontrolstudio.Remove.remove_estore;
 import ucontrol.ucontrolstudio.Remove.remove_iluminacao;
+import ucontrol.ucontrolstudio.Remove.remove_porta;
 import ucontrol.ucontrolstudio.Remove.remove_tv;
 
 public class activity_mremove extends AppCompatActivity {
@@ -82,7 +84,7 @@ public class activity_mremove extends AppCompatActivity {
         doors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), remove_audio.class);
+                Intent intent = new Intent(getApplicationContext(), remove_porta.class);
                 startActivity(intent);
             }
         });
@@ -90,7 +92,7 @@ public class activity_mremove extends AppCompatActivity {
         division.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), remove_audio.class);
+                Intent intent = new Intent(getApplicationContext(), remove_divisao.class);
                 startActivity(intent);
             }
         });

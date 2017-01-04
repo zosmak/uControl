@@ -137,7 +137,8 @@
                 android:showText="true"
                 android:layout_weight="0.15"
                 android:textSize="20sp"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:checked="false" />
         </LinearLayout>
 
         <LinearLayout

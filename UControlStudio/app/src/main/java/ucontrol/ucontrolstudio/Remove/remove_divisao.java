@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ucontrol.ucontrolstudio.Add.addAirConditioner;
 import ucontrol.ucontrolstudio.R;
 
 public class remove_divisao extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class remove_divisao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_divisao);
 
-        spinnerDivisao();
+        spinnerDivisoes();
 
         confirmar = (ImageView) findViewById(R.id.confirmRemoverDivisao);
 
@@ -52,9 +53,9 @@ public class remove_divisao extends AppCompatActivity {
 
     }
 
-    // listar divisoes no spinner
-    public void spinnerDivisao() {
-        try {
+    public void spinnerDivisoes(){
+        try
+        {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_divisoes.php";
@@ -69,15 +70,16 @@ public class remove_divisao extends AppCompatActivity {
                                 ArrayAdapter adapterDivisoes = new ArrayAdapter(remove_divisao.this, android.R.layout.simple_list_item_1, divisoes);
 
 
-                                String descricao;
+                                String res="", descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idDivisao = obj.getString("idDivisao");
+                                    res += "" + idDivisao;
                                     divisoes.add(descricao);
                                 }
                                 // colocar a informacao na lista
-                                spinner = (Spinner) findViewById(R.id.spinnerDivisaoRemove);
+                                spinner = (Spinner)findViewById(R.id.spinnerDivisaoRemove);
                                 spinner.setAdapter(adapterDivisoes);
 
                                 // saber a posição no spinner
@@ -93,7 +95,6 @@ public class remove_divisao extends AppCompatActivity {
 
                                     }
                                 });
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -106,10 +107,15 @@ public class remove_divisao extends AppCompatActivity {
                         }
                     });
             queue.add(jsonRequest);
-        } catch (Exception ex) {
-        } finally {
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
         }
     }
+
 
 
     public void removerDivisao()

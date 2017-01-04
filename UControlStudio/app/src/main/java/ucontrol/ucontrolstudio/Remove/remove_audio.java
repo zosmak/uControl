@@ -45,129 +45,10 @@ import ucontrol.ucontrolstudio.activity_television;
 
 public class remove_audio extends AppCompatActivity {
 
-/*
-    private Spinner spinnerDivisao;
-    private ListView listAudio;
-    //public String descDivisao = "quarto";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_remove_audio);
-        listarDivisoes();
-        listarAudio();
-    }
-
-    public  void  listarDivisoes()
-    {
-        try
-        {
-            RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
-
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_divisoes.php";
-
-            JsonArrayRequest jsonRequest = new JsonArrayRequest
-                    (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            // the response is already constructed as a JSONArray!
-                            try {
-
-                                final ArrayList<String> divisao = new ArrayList<>();
-                                ArrayAdapter adapterDivisao = new ArrayAdapter(remove_audio.this, android.R.layout.simple_list_item_1, divisao);
-
-                                String descricao;
-                                for (int i = 0; i < response.length(); ++i) {
-                                    JSONObject obj = response.getJSONObject(i);
-                                    descricao = obj.getString("descricao");
-                                    divisao.add(descricao);
-                                }
-                                spinnerDivisao = (Spinner)findViewById(R.id.r_audio_div);
-                                spinnerDivisao.setAdapter(adapterDivisao);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                        }
-                    });
-            //Volley.newRequestQueue(this).add(jsonRequest);
-            queue.add(jsonRequest);
-        }
-        catch(Exception ex)
-        {
-        }
-        finally
-        {
-        }
-
-    }
-    public  void  listarAudio(){
-        try
-        {
-            RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
-
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_divisao_audio.php";//?descricao="+descDivisao;
-
-            JsonArrayRequest jsonRequest = new JsonArrayRequest
-                    (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            // the response is already constructed as a JSONArray!
-                            try {
-
-                                final ArrayList<String> audio = new ArrayList<>();
-                                ArrayAdapter adapterAudio = new ArrayAdapter(remove_audio.this, android.R.layout.simple_list_item_checked, audio);
-
-                                String descricao;
-                                for (int i = 0; i < response.length(); ++i) {
-                                    JSONObject obj = response.getJSONObject(i);
-                                    descricao = obj.getString("descricao");
-                                    audio.add(descricao);
-                                }
-                                listAudio = (ListView) findViewById(R.id.List_audio);
-                                listAudio.setAdapter(adapterAudio);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            error.printStackTrace();
-                        }
-                    });
-            //Volley.newRequestQueue(this).add(jsonRequest);
-            queue.add(jsonRequest);
-        }
-        catch(Exception ex)
-        {
-        }
-        finally {
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
-*/
-
     private ImageView confirmar;
     private Spinner spinner;
     private String idAudio;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,14 +57,14 @@ public class remove_audio extends AppCompatActivity {
 
         spinnerAudio();
 
-        //confirmar = (ImageView) findViewById(R.id.confirmRemoverAudio);
+        confirmar = (ImageView) findViewById(R.id.confirmRemoverAudio);
 
-        /*confirmar.setOnClickListener(new View.OnClickListener() {
+        confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 removerAudio();
             }
-        });*/
+        });
 
     }
 
@@ -192,7 +73,7 @@ public class remove_audio extends AppCompatActivity {
         try {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_audios.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -212,7 +93,7 @@ public class remove_audio extends AppCompatActivity {
                                     audio.add(descricao);
                                 }
                                 // colocar a informacao na lista
-                                spinner = (Spinner) findViewById(R.id.spinnerAlarmeRemove);
+                                spinner = (Spinner) findViewById(R.id.spinnerAudioRemove);
                                 spinner.setAdapter(adapterAudio);
 
                                 // saber a posição no spinner
@@ -221,8 +102,6 @@ public class remove_audio extends AppCompatActivity {
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         position++;
                                         idAudio = String.valueOf(position);
-                                        // testar se está a passar o id do ac
-                                        //Toast.makeText(remove_ac.this, idArCondicionado, Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override
@@ -253,7 +132,7 @@ public class remove_audio extends AppCompatActivity {
     {
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remover_audio.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_audio.php";
 
             StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                     new Response.Listener<String>() {

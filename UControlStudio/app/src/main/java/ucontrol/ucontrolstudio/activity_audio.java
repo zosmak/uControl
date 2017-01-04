@@ -69,12 +69,9 @@ public class activity_audio extends AppCompatActivity {
                                 final ArrayList<String> dispositivos = new ArrayList<>();
                                 ArrayAdapter adapterDispositivos = new ArrayAdapter(activity_audio.this, android.R.layout.simple_list_item_checked, dispositivos);
 
-
-                                String res="", idDispositivo, descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     idAudio = obj.getString("idAudio");
-                                    res += "" + dispositivos;
                                     dispositivos.add(idAudio);
                                 }
                                 listaDispositivos = (ListView)findViewById(R.id.lista_dispositivos);

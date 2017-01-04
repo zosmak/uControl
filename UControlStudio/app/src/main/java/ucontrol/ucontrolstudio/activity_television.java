@@ -79,7 +79,7 @@ public class activity_television extends AppCompatActivity {
     {
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?descricao=jornal&horaInicio=0&horaFim=0";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?canal="+ canal + "&horaInicio=0&horaFim=0&idTv="+idTv;
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

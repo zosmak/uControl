@@ -197,20 +197,24 @@ public class activity_air_conditioner extends AppCompatActivity {
 
                             if(isChecked){
                                 Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
+                                estado = String.valueOf(1);
                             }else{
                                 Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
+                                estado = String.valueOf(0);
                             }
 
                         }
-                    });
+                    });*/
+
+                    estado = String.valueOf(0);
 
                     if (s.isChecked()) {
                         Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
+                        estado = String.valueOf(1);
                     } else {
                         Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                    }*/
-
-                    estado = String.valueOf(1);
+                        estado = String.valueOf(0);
+                    }
 
                     params.put("modo", modo);
                     params.put("estado", estado);

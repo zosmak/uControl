@@ -41,11 +41,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-<<<<<<< HEAD
-            android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:layout_marginLeft="10dp">
-=======
+            android:layout_marginLeft="10dp"
             android:layout_height="50dp">
 
             <Switch
@@ -58,14 +55,13 @@
                 android:textOff='Closed'
                 android:showText="true"
                 android:layout_weight="1"
-                style="@android:style/Widget.Holo.Light.CompoundButton.Switch" />
+                />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
->>>>>>> origin/master
 
             <TextView
                 android:text="Lift:"
