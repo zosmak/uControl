@@ -9,15 +9,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_blinds"
-    android:background="@color/color_blinds">
+    tools:context="ucontrol.ucontrolstudio.activity_blinds">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
 
         <TextView
             android:text="Blinds"
@@ -26,7 +26,7 @@
             android:fontFamily="bariol"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/color_blinds"
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
@@ -35,53 +35,40 @@
             android:layout_height="150dp"
             android:textColor="@android:color/white"
             android:choiceMode="multipleChoice"
-            android:id="@+id/lista_blinds" />
+            android:id="@+id/lista_blinds"
+            android:layout_weight="0.20" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <Switch
-                android:text="State:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ilumination_switch"
-                android:textColor="@android:color/white"
-                android:textOn='Open'
-                android:textOff='Closed'
-                android:showText="true"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="10dp">
 
             <TextView
                 android:text="Lift:"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
-                android:textColor="@android:color/white"
+                android:textColor="@color/color_blinds"
                 android:layout_width="wrap_content"
                 android:paddingTop="80dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="15dp"
+                android:textStyle="normal|bold" />
 
             <NumberPicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/nbBlinds">
+                android:layout_width="40dp"
+                android:layout_height="150dp"
+                android:id="@+id/nbBlinds"
+                android:layout_marginTop="15dp">
             </NumberPicker>
 
             <ImageView
                 app:srcCompat="@drawable/estoreschange"
                 android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_marginTop="70dp"
-                android:paddingBottom="40dp"
-                android:paddingLeft="50dp" />
+                android:layout_height="50dp"
+                android:layout_marginTop="65dp"
+                android:paddingLeft="20dp" />
 
         </LinearLayout>
 

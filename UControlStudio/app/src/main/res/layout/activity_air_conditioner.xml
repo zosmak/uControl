@@ -9,22 +9,21 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_air_conditioner"
-    android:background="@color/color_ac">
+    tools:context="ucontrol.ucontrolstudio.activity_air_conditioner">
 
     <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginBottom="23dp">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
 
         <TextView
             android:text="Air Conditioner"
@@ -33,7 +32,7 @@
             android:fontFamily="bariol"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/color_ac"
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
@@ -64,9 +63,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:paddingBottom="50dp"
-            android:layout_height="150dp">
+            android:layout_width="239dp"
+            android:layout_height="107dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
 
             <TextView
                 android:text="Mode:"
@@ -76,11 +77,12 @@
                 android:layout_weight="1"
                 android:textSize="24sp"
                 android:fontFamily="Bariol"
-                android:textColor="@android:color/white"
-                android:paddingTop="35dp" />
+                android:textColor="@color/color_ac"
+                android:paddingTop="35dp"
+                android:textStyle="normal|bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="158dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="50dp">
@@ -95,22 +97,26 @@
                         android:id="@+id/radioColdAc"
                         android:checked="false"
                         android:fontFamily="Bariol"
-                        android:textColor="@android:color/white" />
-                    <RadioButton
-                        android:text="Regular"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/radioRegularAc"
-                        android:fontFamily="Bariol"
-                        android:textColor="@android:color/white"
-                        android:checked="true" />
+                        android:textColor="@color/color_ac"
+                        android:textStyle="normal|bold" />
+
                     <RadioButton
                         android:text="Freeze"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/radioFreezeAc"
                         android:fontFamily="Bariol"
-                        android:textColor="@android:color/white"/>
+                        android:textColor="@color/color_ac"
+                        android:textStyle="normal|bold" />
+                    <RadioButton
+                        android:text="Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioRegularAc"
+                        android:fontFamily="Bariol"
+                        android:textColor="@color/color_ac"
+                        android:checked="true"
+                        android:textStyle="normal|bold" />
                 </RadioGroup>
             </LinearLayout>
         </LinearLayout>
@@ -123,13 +129,15 @@
             <Switch
                 android:text="Power:"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:id="@+id/ac_switch"
-                android:textColor="@android:color/white"
+                android:textColor="@color/color_ac"
                 android:textOn='On'
                 android:textOff='Off'
                 android:showText="true"
-                android:layout_weight="1" />
+                android:layout_weight="0.15"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -141,25 +149,27 @@
                 android:text="Temperature: "
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
-                android:textColor="@android:color/white"
+                android:textColor="@color/color_ac"
                 android:layout_width="wrap_content"
                 android:paddingTop="80dp"
-                android:paddingRight="15dp" />
+                android:paddingRight="1dp"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
 
             <NumberPicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
                 android:id="@+id/nbAc">
             </NumberPicker>
 
             <ImageView
                 app:srcCompat="@drawable/arcondicionadochange"
                 android:id="@+id/changeAc"
-                android:paddingLeft="50dp"
-                android:layout_width="wrap_content"
-                android:paddingBottom="40dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="70dp" />
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="65dp"
+                android:paddingLeft="15dp"/>
 
         </LinearLayout>
     </LinearLayout>

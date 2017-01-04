@@ -19,7 +19,7 @@
         android:layout_marginTop="100dp">
 
         <ImageView
-            app:srcCompat="@drawable/mADD"
+            app:srcCompat="@drawable/madd"
             android:id="@+id/imageButtonAdd"
             android:layout_width="250dp"
             android:paddingBottom="0dp"
@@ -31,7 +31,7 @@
             android:layout_gravity="center_horizontal" />
 
         <ImageView
-            app:srcCompat="@drawable/mREMOVE"
+            app:srcCompat="@drawable/mremove"
             android:id="@+id/imageButtonRemove"
             android:layout_width="250dp"
             android:paddingBottom="0dp"
