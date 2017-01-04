@@ -9,13 +9,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_audio"
-    android:background="@color/color_audio">
+    tools:context="ucontrol.ucontrolstudio.activity_audio">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="360dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2"
+        android:weightSum="1">
 
         <TextView
             android:text="Devices"
@@ -24,38 +27,60 @@
             android:fontFamily="bariol"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimaryAudio"
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimaryAudio"
             android:choiceMode="multipleChoice"
-            android:id="@+id/lista_dispositivos" />
+            android:id="@+id/lista_dispositivos"
+            android:layout_height="162dp" />
+
+        <Switch
+            android:text="Power:"
+            android:layout_width="match_parent"
+            android:textOn='On'
+            android:textOff='Off'
+            android:showText="true"
+            android:textSize="25dp"
+            android:textColor="?attr/colorControlActivated"
+            android:layout_height="60dp"
+            android:id="@+id/audio_switch"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="60dp"
+            android:textStyle="normal|bold"/>
+
+
     </LinearLayout>
+
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="250dp">
+        android:layout_marginTop="355dp"
+        android:id="@+id/linearLayout4"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
 
         <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
             android:id="@+id/nbAudio">
         </NumberPicker>
 
         <ImageView
             app:srcCompat="@drawable/audioconfirm"
             android:id="@+id/imageView"
-            android:layout_marginTop="40dp"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_height="match_parent"
+            android:layout_width="200dp"
             android:layout_marginLeft="30dp"
-            android:layout_width="170dp" />
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1." />
 
     </LinearLayout>
 

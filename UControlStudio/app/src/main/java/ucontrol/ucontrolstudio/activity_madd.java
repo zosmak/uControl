@@ -20,7 +20,7 @@ public class activity_madd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_madd);
 
-        adddivison = (ImageView)findViewById(R.id.addDivison);
+        adddivison = (ImageView)findViewById(R.id.addDivision);
         addTv = (ImageView)findViewById(R.id.addTv);
         addAc = (ImageView)findViewById(R.id.addAC);
         addAudio = (ImageView)findViewById(R.id.addAudio);

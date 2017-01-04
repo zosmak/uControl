@@ -80,7 +80,7 @@
                     android:layout_width="180dp" />
 
                 <ImageView
-                    app:srcCompat="@drawable/addDivision"
+                    app:srcCompat="@drawable/addivision"
                     android:id="@+id/addDivision"
                     android:layout_height="180dp"
                     android:layout_width="180dp" />
