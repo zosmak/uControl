@@ -11,15 +11,18 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -27,6 +30,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class activity_ac_schedule extends AppCompatActivity {
 
@@ -34,6 +39,7 @@ public class activity_ac_schedule extends AppCompatActivity {
     private ImageView start, end;
     private TextView tvstart, tvend;
     private int horas=12, minutos=00;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

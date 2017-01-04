@@ -11,12 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -24,11 +26,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class activity_blinds extends AppCompatActivity {
 
     private NumberPicker nb;
     private ListView listaEstores;
+    private String posicao, idEstore, divisao, descricao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +72,11 @@ public class activity_blinds extends AppCompatActivity {
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
+                                    idEstore = obj.getString("idEstore");
+                                    divisao = obj.getString("divisao");
+                                    posicao = obj.getString("posicao");
                                     estores.add(descricao);
+
                                 }
                                 listaEstores = (ListView)findViewById(R.id.lista_blinds);
                                 listaEstores.setAdapter(adapterEstores);
@@ -91,6 +101,56 @@ public class activity_blinds extends AppCompatActivity {
         }
 
     }
+
+
+
+    // Atualizar Estores
+    public void updateBlinds()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_estore.php";
+
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(activity_blinds.this, "Updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(activity_blinds.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            error.printStackTrace();
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams()
+                {
+                    Map<String, String>  params = new HashMap<>();
+                    // the POST parameters:
+                    params.put("idEstore", idEstore);
+
+
+                    // ver qual a posicao
+                    posicao = String.valueOf(nb.getValue());
+
+                    params.put("posicao", posicao);
+                    return params;
+                }
+            };
+            Volley.newRequestQueue(this).add(postRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

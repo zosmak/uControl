@@ -134,7 +134,7 @@
                         android:text="Cold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioCold"
+                        android:id="@+id/radioColdAc_schedule"
                         android:checked="true"
                         android:fontFamily="Bariol"
                         android:textColor="@android:color/white" />
@@ -142,14 +142,14 @@
                         android:text="Regular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioRegular"
+                        android:id="@+id/radioRegularAc_schedule"
                         android:fontFamily="Bariol"
                         android:textColor="@android:color/white"/>
                     <RadioButton
                         android:text="Freeze"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioFreeze"
+                        android:id="@+id/radioFreezeAc_schedule"
                         android:fontFamily="Bariol"
                         android:textColor="@android:color/white"/>
                 </RadioGroup>
