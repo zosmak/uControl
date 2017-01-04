@@ -43,7 +43,7 @@ public class addAlarm extends AppCompatActivity {
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //inserirAlarm();
+                inserirAlarm();
             }
         });
     }
@@ -55,7 +55,7 @@ public class addAlarm extends AppCompatActivity {
         {
             descricao = (EditText)findViewById(R.id.nameNewAlarm);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?"+"descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -64,7 +64,7 @@ public class addAlarm extends AppCompatActivity {
                         public void onResponse(String response) {
 
                             // Result handling
-                            Toast.makeText(addAlarm.this, "New air conditioner added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(addAlarm.this, "New alarm added", Toast.LENGTH_SHORT).show();
 
                         }
                     }, new Response.ErrorListener() {

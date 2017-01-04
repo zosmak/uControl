@@ -56,7 +56,7 @@ public class addTelevision extends AppCompatActivity {
         {
             descricao = (EditText)findViewById(R.id.nameNewTV);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_tv.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&canal=1&gravacao=1&volume=0";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_tv.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&canal=1&volume=0";
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

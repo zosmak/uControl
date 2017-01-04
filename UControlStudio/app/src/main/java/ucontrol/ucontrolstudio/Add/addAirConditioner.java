@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -31,11 +32,14 @@ public class addAirConditioner extends AppCompatActivity {
     private ImageView confirmar;
     private Spinner spinner;
     private String idDivisao;
+    private String idAc;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_air_conditioner);
+
 
         spinnerDivisoes();
 

@@ -98,7 +98,7 @@ public class remove_ac extends AppCompatActivity {
                                     @Override
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         position++;
-                                        idArCondicionado = String.valueOf(position);
+                                        //idArCondicionado = String.valueOf(position);
                                         // testar se está a passar o id do ac
                                         //Toast.makeText(remove_ac.this, idArCondicionado, Toast.LENGTH_SHORT).show();
                                     }

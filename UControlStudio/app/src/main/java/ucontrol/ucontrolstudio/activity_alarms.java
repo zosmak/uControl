@@ -50,7 +50,7 @@ public class activity_alarms extends AppCompatActivity {
         {
             RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_sensores.php";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_alarmes.php";
 
             JsonArrayRequest jsonRequest = new JsonArrayRequest
                     (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -63,10 +63,9 @@ public class activity_alarms extends AppCompatActivity {
                                 ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_checked, alarmes);
 
 
-                                String res="", idDivisao, descricao;
+                                String res="", descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                   // idDivisao = obj.getString("idDivisao");
                                     descricao = obj.getString("descricao");
                                     res += "" + descricao;
                                     alarmes.add(descricao);
