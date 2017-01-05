@@ -11,11 +11,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -39,8 +41,10 @@ public class activity_television extends AppCompatActivity {
     private Button recordings;
     private NumberPicker nb;
     private ListView ltv;
-    private ImageView mudarCanal, gravar;
-    private String idTv, descricao, divisao, estado, canal,gravacao, volume;
+    private ImageView gravar;
+    private String idTv, estado, canal;
+    private Switch s;
+    private ImageView gt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,23 @@ public class activity_television extends AppCompatActivity {
         recordings = (Button) findViewById(R.id.recordings_tv);
         nb = (NumberPicker) findViewById(R.id.nbTv);
         gravar = (ImageView)findViewById(R.id.botaoGravar);
+        gt = (ImageView)findViewById(R.id.mudarCanal);
+        /*s = (Switch) findViewById(R.id.tv_switch);
+
+        // ver se está ligado ou não
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked == true){
+                    estado = String.valueOf(1);
+                }else{
+                    estado = String.valueOf(0);
+                }
+
+            }
+        });*/
 
         gravar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +154,9 @@ public class activity_television extends AppCompatActivity {
                                 String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
+                                    idTv = obj.getString("idTv");
                                     descricao = obj.getString("descricao");
+                                    canal = obj.getString("canal");
                                     tv.add(descricao);
                                 }
                                 ltv= (ListView)findViewById(R.id.lista_tvs);
@@ -190,11 +213,12 @@ public class activity_television extends AppCompatActivity {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
                     params.put("idTv", idTv);
+                    params.put("estado", estado);
 
                     // ver qual o volume
-                    volume = String.valueOf(nb.getValue());
+                    canal = String.valueOf(nb.getValue());
 
-                    params.put("volume", volume);
+                    params.put("canal", canal);
                     return params;
                 }
             };

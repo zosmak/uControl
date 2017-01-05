@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -33,18 +37,47 @@ public class activity_illumination extends AppCompatActivity {
 
     private NumberPicker nb;
     private ListView listaLuzes;
-    private String idIluminacao, descricao, divisao, estado, intensidade;
+    private String idIluminacao, descricao, estado, intensidade;
+    private Switch s;
+    private ImageView change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_illumination);
 
+        // listar as luzes
+        listarLuzes();
+
+        // definir limites de intensidade
         nb = (NumberPicker) findViewById(R.id.nbIllumination);
         nb.setMaxValue(10);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
-        listarLuzes();
+        s = (Switch) findViewById(R.id.illumination_switch);
+        change = (ImageView)findViewById(R.id.changeUpdateIllu);
+
+        // ver se está ligado ou não
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked == true){
+                    estado = String.valueOf(1);
+                }else{
+                    estado = String.valueOf(0);
+                }
+
+            }
+        });
+
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateIllumination();
+            }
+        });
     }
 
 
@@ -67,12 +100,11 @@ public class activity_illumination extends AppCompatActivity {
                                 ArrayAdapter adapterIluminacao = new ArrayAdapter(activity_illumination.this, android.R.layout.simple_list_item_checked, iluminacao);
 
 
-                                String res="", idIluminacao;
+                                String res="";
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idIluminacao = obj.getString("idIluminacao");
-                                    divisao = obj.getString("divisao");
                                     intensidade = obj.getString("intensidade");
                                     estado = obj.getString("estado");
                                     iluminacao.add(descricao);
@@ -91,7 +123,6 @@ public class activity_illumination extends AppCompatActivity {
                             error.printStackTrace();
                         }
                     });
-            //Volley.newRequestQueue(this).add(jsonRequest);
             queue.add(jsonRequest);
         }
         catch(Exception ex)
@@ -136,30 +167,6 @@ public class activity_illumination extends AppCompatActivity {
 
                     // ver qual a temperatura
                     intensidade = String.valueOf(nb.getValue());
-
-                    // ver se está ligado ou não
-                    /*s.setChecked(true);
-                    s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-                        @Override
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                            if(isChecked){
-                                Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-                    if (s.isChecked()) {
-                        Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                    }*/
-
-                    estado = String.valueOf(1);
 
                     params.put("estado", estado);
                     params.put("intensidade", intensidade);

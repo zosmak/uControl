@@ -7,10 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,14 +36,43 @@ import java.util.Map;
 public class activity_doors extends AppCompatActivity {
 
     private ListView listaPortas;
-    private String estado, idPorta, divisao, descricao;
+    private String estado, idPorta;
+    private Switch s;
+    private ImageView c;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doors);
+        // listar as portas
         listarPortas();
+
+        s = (Switch) findViewById(R.id.doors_switch);
+
+        // ver se está ligado ou não
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked == true){
+                    estado = String.valueOf(1);
+                }else{
+                    estado = String.valueOf(0);
+                }
+
+            }
+        });
+
+        c = (ImageView)findViewById(R.id.confirmUpdateDoors);
+        // confirmar update
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateDoors();
+            }
+        });
     }
 
 
@@ -61,13 +94,11 @@ public class activity_doors extends AppCompatActivity {
                                 final ArrayList<String> portas = new ArrayList<>();
                                 ArrayAdapter adapterPortas = new ArrayAdapter(activity_doors.this, android.R.layout.simple_list_item_checked, portas);
 
-
-                                String idPorta;
+                                String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
                                     idPorta = obj.getString("idPorta");
-                                    divisao = obj.getString("divisao");
                                     estado = obj.getString("estado");
                                     portas.add(descricao);
                                 }
@@ -84,7 +115,6 @@ public class activity_doors extends AppCompatActivity {
                             error.printStackTrace();
                         }
                     });
-            //Volley.newRequestQueue(this).add(jsonRequest);
             queue.add(jsonRequest);
         }
         catch(Exception ex)
@@ -95,7 +125,6 @@ public class activity_doors extends AppCompatActivity {
         }
 
     }
-
 
 
     // Atualizar Portas
@@ -126,32 +155,6 @@ public class activity_doors extends AppCompatActivity {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
                     params.put("idPorta", idPorta);
-
-
-                    // ver se está ligado ou não
-                    /*s.setChecked(true);
-                    s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-                        @Override
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                            if(isChecked){
-                                Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-                    if (s.isChecked()) {
-                        Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                    }*/
-
-                    estado = String.valueOf(1);
-
                     params.put("estado", estado);
                     return params;
                 }

@@ -11,15 +11,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -28,10 +33,15 @@ import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class activity_alarms extends AppCompatActivity {
 
     private ListView la;
+    private ImageView confirm;
+    private Switch s;
+    private String idAlarme, estado;
 
 
     @Override
@@ -39,12 +49,38 @@ public class activity_alarms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarms);
 
-        listarSensores();
+        confirm = (ImageView)findViewById(R.id.confirmUpdateAlarms);
+        s = (Switch)findViewById(R.id.alarms_switch);
+
+        // ver se está ligado ou não
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked == true){
+                    estado = String.valueOf(1);
+                }else{
+                    estado = String.valueOf(0);
+                }
+
+            }
+        });
+
+        // fazer update
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateAlarms();
+            }
+        });
+
+        listarAlarmes();
 
     }
 
     // Listar alarmes
-   public  void  listarSensores()
+   public  void  listarAlarmes()
     {
         try
         {
@@ -63,11 +99,12 @@ public class activity_alarms extends AppCompatActivity {
                                 ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_checked, alarmes);
 
 
-                                String res="", descricao;
+                                String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
-                                    res += "" + descricao;
+                                    idAlarme = obj.getString("idAlarme");
+                                    estado = obj.getString("estado");
                                     alarmes.add(descricao);
                                 }
                                 la = (ListView)findViewById(R.id.lista_alarms);
@@ -83,7 +120,6 @@ public class activity_alarms extends AppCompatActivity {
                             error.printStackTrace();
                         }
                     });
-            //Volley.newRequestQueue(this).add(jsonRequest);
             queue.add(jsonRequest);
         }
         catch(Exception ex)
@@ -93,6 +129,48 @@ public class activity_alarms extends AppCompatActivity {
         {
         }
 
+    }
+
+    // Atualizar alarmes
+    public void updateAlarms()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/update_alarme.php";
+
+            StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Toast.makeText(activity_alarms.this, "Updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(activity_alarms.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                            error.printStackTrace();
+                        }
+                    }
+            ) {
+                @Override
+                protected Map<String, String> getParams()
+                {
+                    Map<String, String>  params = new HashMap<>();
+                    // the POST parameters:
+                    params.put("idAlarme", idAlarme);
+                    params.put("estado", estado.toString());
+                    return params;
+                }
+            };
+            Volley.newRequestQueue(this).add(postRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
     }
 
 

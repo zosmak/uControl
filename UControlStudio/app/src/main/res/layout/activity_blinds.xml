@@ -82,7 +82,7 @@
 
             <ImageView
                 app:srcCompat="@drawable/estoreschange"
-                android:id="@+id/imageButton"
+                android:id="@+id/changePosicaoEstore"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginTop="65dp"
