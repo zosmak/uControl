@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
@@ -33,12 +35,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ucontrol.ucontrolstudio.Add.addAirConditioner;
+import ucontrol.ucontrolstudio.Remove.remove_ac;
+
 public class activity_ac_schedule extends AppCompatActivity {
 
     private NumberPicker nb;
     private ImageView start, end;
-    private TextView tvstart, tvend;
+    private TextView acstart, acend;
     private int horas=12, minutos=00;
+    private ImageView confirm;
+    private RadioButton rcold, rregular, rfreeze;
+    private String modo, temperatura, idArCondicionado;
+    private Spinner spinner;
 
 
     @Override
@@ -49,12 +58,29 @@ public class activity_ac_schedule extends AppCompatActivity {
         nb = (NumberPicker) findViewById(R.id.nbSchedule);
         start = (ImageView) findViewById(R.id.scheduleStart);
         end = (ImageView) findViewById(R.id.scheduleEnd);
-        tvstart = (TextView) findViewById(R.id.start);
-        tvend = (TextView) findViewById(R.id.end);
+        acstart = (TextView) findViewById(R.id.start);
+        acend = (TextView) findViewById(R.id.end);
+        confirm = (ImageView)findViewById(R.id.schedule_confirm);
+        spinner =(Spinner)findViewById(R.id.spinnerAcSchedule);
 
         nb.setMaxValue(40);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
+
+        // ver qual o modo
+        if(rcold.isChecked()){
+            modo = rcold.getText().toString();
+        }
+        else if(rregular.isChecked()){
+            modo = rregular.getText().toString();
+        }
+        else if(rfreeze.isChecked()){
+            modo = rfreeze.getText().toString();
+        }
+
+        // ver qual a temperatura
+        temperatura = String.valueOf(nb.getValue());
+
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +95,109 @@ public class activity_ac_schedule extends AppCompatActivity {
                 timepickerEnd();
             }
         });
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inserirAc();
+            }
+        });
+    }
+
+    // listar acs no spinner
+    public void spinnerAc() {
+        try {
+            RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_ar_condicionados.php";
+
+            JsonArrayRequest jsonRequest = new JsonArrayRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            // the response is already constructed as a JSONArray!
+                            try {
+                                final ArrayList<String> acs = new ArrayList<>();
+                                ArrayAdapter adapterAc = new ArrayAdapter(activity_ac_schedule.this, android.R.layout.simple_list_item_1, acs);
+
+
+                                String descricao;
+                                for (int i = 0; i < response.length(); ++i) {
+                                    JSONObject obj = response.getJSONObject(i);
+                                    descricao = obj.getString("descricao");
+                                    idArCondicionado = obj.getString("idArCondicionado");
+                                    acs.add(descricao);
+                                }
+                                // colocar a informacao na lista
+                                spinner = (Spinner) findViewById(R.id.spinnerAcSchedule);
+                                spinner.setAdapter(adapterAc);
+
+                                // saber a posição no spinner
+                                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                        position++;
+                                        idArCondicionado = String.valueOf(position);
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                    }
+                                });
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+            queue.add(jsonRequest);
+        } catch (Exception ex) {
+        } finally {
+        }
+    }
+
+    // Inserir nova programacao
+    public  void inserirAc()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ac_schedule.php?horaInicio="+acstart.getText().toString()+"&horaFim="+acend.getText().toString()+"&modo="+modo.toString()+"&intensidade="+temperatura+"idAc"+idArCondicionado;
+
+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            // Result handling
+                            Toast.makeText(activity_ac_schedule.this, "Saved", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    // Error handling
+                    Toast.makeText(activity_ac_schedule.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
+                }
+            });
+            // Add the request to the queue
+            Volley.newRequestQueue(this).add(stringRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
     }
 
     @Override
@@ -130,7 +259,7 @@ public class activity_ac_schedule extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
 
-                        tvstart.setText(hourOfDay + ":" + minute);
+                        acstart.setText(hourOfDay + ":" + minute);
                     }
                 }, horas, minutos, false);
         timePickerDialog.show();
@@ -146,7 +275,7 @@ public class activity_ac_schedule extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
 
-                        tvend.setText(hourOfDay + ":" + minute);
+                        acend.setText(hourOfDay + ":" + minute);
                     }
                 }, horas, minutos, false);
         timePickerDialog.show();

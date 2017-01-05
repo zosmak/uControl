@@ -8,8 +8,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -30,17 +32,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ucontrol.ucontrolstudio.Remove.remove_tv;
+
 public class activity_tv_recordings extends AppCompatActivity {
 
     private Button tv;
     private ListView lr;
+    private Spinner spinner;
+    private String idTv;
+    private ImageView gravar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tv_recordings);
 
+        spinnerTv();
+
         tv = (Button)findViewById(R.id.channels_recordings);
+        gravar = (ImageView)findViewById(R.id.botaoGravar);
 
         listarGravacoes();
 
@@ -49,6 +59,13 @@ public class activity_tv_recordings extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), activity_television.class);
                 startActivity(intent);
+            }
+        });
+
+        gravar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gravar();
             }
         });
     }
@@ -72,11 +89,11 @@ public class activity_tv_recordings extends AppCompatActivity {
                                 final ArrayList<String> recordings = new ArrayList<>();
                                 ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_checked, recordings);
 
-                                String descricao;
+                                String idGravacao;
                                 for (int i = 1; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    descricao = obj.getString("descricao");
-                                    recordings.add(descricao);
+                                    idGravacao = obj.getString("idGravacao");
+                                    recordings.add(idGravacao);
                                 }
                                 lr= (ListView)findViewById(R.id.lista_recordings);
                                 lr.setAdapter(adapterRecordings);
@@ -99,7 +116,102 @@ public class activity_tv_recordings extends AppCompatActivity {
         finally
         {
         }
+    }
 
+    // Gravar
+    public  void gravar()
+    {
+        try
+        {
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?canal=canal&horaInicio=0&horaFim=0&idTv="+idTv;
+
+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            // Result handling
+                            Toast.makeText(activity_tv_recordings.this, "Recorded", Toast.LENGTH_SHORT).show();
+
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                    // Error handling
+                    Toast.makeText(activity_tv_recordings.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
+                }
+            });
+            // Add the request to the queue
+            Volley.newRequestQueue(this).add(stringRequest);
+        }
+        catch(Exception ex)
+        {
+        }
+        finally
+        {
+        }
+    }
+
+    // listar tvs no spinner
+    public void spinnerTv() {
+        try {
+            RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/listar_tvs.php";
+
+            JsonArrayRequest jsonRequest = new JsonArrayRequest
+                    (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            // the response is already constructed as a JSONArray!
+                            try {
+                                final ArrayList<String> tvs = new ArrayList<>();
+                                ArrayAdapter adapterTvs = new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_checked, tvs);
+
+
+                                String descricao;
+                                for (int i = 0; i < response.length(); ++i) {
+                                    JSONObject obj = response.getJSONObject(i);
+                                    descricao = obj.getString("descricao");
+                                    idTv = obj.getString("idTv");
+                                    tvs.add(descricao);
+                                }
+                                // colocar a informacao na lista
+                                spinner = (Spinner) findViewById(R.id.spinnerTvRecordings);
+                                spinner.setAdapter(adapterTvs);
+
+                                // saber a posição no spinner
+                                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                        position++;
+                                        idTv = String.valueOf(position);
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                    }
+                                });
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+            queue.add(jsonRequest);
+        } catch (Exception ex) {
+        } finally {
+        }
     }
 
     @Override

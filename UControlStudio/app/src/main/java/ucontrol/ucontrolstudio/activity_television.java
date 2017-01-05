@@ -41,7 +41,6 @@ public class activity_television extends AppCompatActivity {
     private Button recordings;
     private NumberPicker nb;
     private ListView ltv;
-    private ImageView gravar;
     private String idTv, estado, canal;
     private Switch s;
     private ImageView gt;
@@ -53,9 +52,8 @@ public class activity_television extends AppCompatActivity {
 
         recordings = (Button) findViewById(R.id.recordings_tv);
         nb = (NumberPicker) findViewById(R.id.nbTv);
-        gravar = (ImageView)findViewById(R.id.botaoGravar);
         gt = (ImageView)findViewById(R.id.mudarCanal);
-        /*s = (Switch) findViewById(R.id.tv_switch);
+        s = (Switch) findViewById(R.id.tv_switch);
 
         // ver se está ligado ou não
         s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -70,13 +68,6 @@ public class activity_television extends AppCompatActivity {
                 }
 
             }
-        });*/
-
-        gravar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gravar();
-            }
         });
 
         recordings.setOnClickListener(new View.OnClickListener() {
@@ -87,49 +78,19 @@ public class activity_television extends AppCompatActivity {
             }
         });
 
-        nb.setMaxValue(50);
+        nb.setMaxValue(200);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
 
         listarTv();
 
-    }
+        gt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateTv();
+            }
+        });
 
-    // Gravar
-    public  void gravar()
-    {
-        try
-        {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?canal="+ canal + "&horaInicio=0&horaFim=0&idTv="+idTv;
-
-
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-
-                            // Result handling
-                            Toast.makeText(activity_television.this, "Recorded", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-
-                    // Error handling
-                    Toast.makeText(activity_television.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
-                    error.printStackTrace();
-                }
-            });
-            // Add the request to the queue
-            Volley.newRequestQueue(this).add(stringRequest);
-        }
-        catch(Exception ex)
-        {
-        }
-        finally
-        {
-        }
     }
 
     // Listar tvs
@@ -182,8 +143,6 @@ public class activity_television extends AppCompatActivity {
         }
 
     }
-
-
 
     // Atualizar Tv
     public void updateTv()

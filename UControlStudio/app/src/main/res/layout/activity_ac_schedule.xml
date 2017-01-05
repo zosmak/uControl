@@ -39,6 +39,12 @@
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerAcSchedule"
+            android:layout_marginBottom="30dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -171,7 +177,7 @@
             android:layout_height="200dp">
 
             <TextView
-                android:text="Intensity:"
+                android:text="Temperature:"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:textColor="@color/color_ac"
@@ -190,7 +196,7 @@
 
             <ImageView
                 app:srcCompat="@drawable/arcondicionadoconfirm"
-                android:id="@+id/schedule_confim"
+                android:id="@+id/schedule_confirm"
                 android:layout_height="wrap_content"
                 android:layout_width="200dp"
                 android:layout_marginTop="54dp"

@@ -55,6 +55,7 @@ public class activity_illumination extends AppCompatActivity {
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
         change = (ImageView)findViewById(R.id.changeUpdateIllu);
+        s = (Switch)findViewById(R.id.illu_switch);
 
         // ver se está ligado ou não
         s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -132,8 +133,6 @@ public class activity_illumination extends AppCompatActivity {
         }
 
     }
-
-
 
     // Atualizar Iluminação
     public void updateIllumination()

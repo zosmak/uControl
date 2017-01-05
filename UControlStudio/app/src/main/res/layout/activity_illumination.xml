@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
         <TextView
@@ -36,6 +36,21 @@
             android:textColor="@android:color/white"
             android:id="@+id/lista_ilumination" />
 
+        <Switch
+            android:text="Power:"
+            android:layout_width="fill_parent"
+            android:textOn='On'
+            android:textOff='Off'
+            android:showText="true"
+            android:textSize="20sp"
+            android:textColor="?attr/colorControlActivated"
+            android:layout_height="wrap_content"
+            android:id="@+id/illu_switch"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:textStyle="normal|bold"
+            android:checked="false" />
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -49,7 +64,7 @@
                 android:textColor="@color/color_doors"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="50dp"
                 android:textSize="20dp"
                 android:textStyle="normal|bold" />
 
@@ -57,17 +72,17 @@
                 android:layout_width="50dp"
                 android:layout_height="120dp"
                 android:id="@+id/nbIllumination"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp">
             </NumberPicker>
 
             <ImageView
                 app:srcCompat="@drawable/ilumchange"
                 android:id="@+id/changeUpdateIllu"
-                android:layout_height="80dp"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="50dp"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_height="50dp" />
 
         </LinearLayout>
 

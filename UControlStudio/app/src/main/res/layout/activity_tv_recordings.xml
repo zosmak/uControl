@@ -58,7 +58,7 @@
         <Spinner
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinnerTvRemove"
+            android:id="@+id/spinnerTvRecordings"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="-35dp"/>
         <TextView
