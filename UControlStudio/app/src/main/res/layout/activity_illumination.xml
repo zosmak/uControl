@@ -39,33 +39,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="90dp">
-
-            <Switch
-                android:text="Power:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-<<<<<<< HEAD
-                android:id="@+id/ilumination_switch"
-=======
-                android:id="@+id/illumination_switch"
-                android:textColor="@android:color/white"
->>>>>>> origin/master
-                android:textOn='On'
-                android:textOff='Off'
-                android:showText="true"
-                android:layout_weight="1"
-                android:textColor="@color/color_doors"
-                android:textSize="20dp"
-                android:textStyle="normal|bold"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="40dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="50dp">
 
             <TextView
                 android:text="Intensity:"
@@ -76,7 +51,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="80dp"
                 android:textSize="20dp"
-                android:textStyle="normal|bold"/>
+                android:textStyle="normal|bold" />
 
             <NumberPicker
                 android:layout_width="50dp"

@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/alarmconfirm"
-                android:id="@+id/confirmRemoveAudio"
+                android:id="@+id/removeTv"
                 android:layout_marginLeft="60dp"/>
         </LinearLayout>
 

@@ -42,7 +42,7 @@ public class remove_alarme extends AppCompatActivity {
 
         spinnerAlarme();
 
-        confirmar = (ImageView) findViewById(R.id.confirmRemoverAlarme);
+        confirmar = (ImageView) findViewById(R.id.removeAlarm);
 
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override

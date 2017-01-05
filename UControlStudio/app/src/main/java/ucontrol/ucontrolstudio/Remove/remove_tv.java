@@ -46,7 +46,7 @@ public class remove_tv extends AppCompatActivity {
 
         spinnerTv();
 
-        confirmar = (ImageView) findViewById(R.id.confirmRemoverTv);
+        confirmar = (ImageView) findViewById(R.id.removeTv);
 
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override

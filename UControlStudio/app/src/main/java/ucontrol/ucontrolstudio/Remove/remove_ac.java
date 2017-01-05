@@ -50,7 +50,7 @@ public class remove_ac extends AppCompatActivity {
 
         spinnerAc();
 
-        confirmar = (ImageView) findViewById(R.id.confirmRemoverAc);
+        confirmar = (ImageView) findViewById(R.id.removeAc);
 
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override

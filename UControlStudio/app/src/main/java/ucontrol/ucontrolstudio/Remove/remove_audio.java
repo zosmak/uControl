@@ -57,7 +57,7 @@ public class remove_audio extends AppCompatActivity {
 
         spinnerAudio();
 
-        confirmar = (ImageView) findViewById(R.id.confirmRemoverAudio);
+        confirmar = (ImageView) findViewById(R.id.removeAudio);
 
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override

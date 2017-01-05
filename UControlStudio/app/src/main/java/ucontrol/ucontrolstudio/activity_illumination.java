@@ -54,7 +54,6 @@ public class activity_illumination extends AppCompatActivity {
         nb.setMaxValue(10);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
-        s = (Switch) findViewById(R.id.illumination_switch);
         change = (ImageView)findViewById(R.id.changeUpdateIllu);
 
         // ver se está ligado ou não
