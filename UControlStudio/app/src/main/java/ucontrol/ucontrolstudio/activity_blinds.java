@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -33,7 +37,8 @@ public class activity_blinds extends AppCompatActivity {
 
     private NumberPicker nb;
     private ListView listaEstores;
-    private String posicao, idEstore, divisao, descricao;
+    private String posicao, idEstore, divisao, descricao, estado;
+    private ImageView change;
 
 
     @Override
@@ -42,11 +47,22 @@ public class activity_blinds extends AppCompatActivity {
         setContentView(R.layout.activity_blinds);
 
         nb = (NumberPicker) findViewById(R.id.nbBlinds);
+        change = (ImageView) findViewById(R.id.changePosicaoEstore);
 
+        // limites para a posicao os estores
         nb.setMaxValue(10);
-        nb.setMinValue(1);
+        nb.setMinValue(0);
         nb.setWrapSelectorWheel(false);
+
+        // listar os estores
         listarEstores();
+
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateBlinds();
+            }
+        });
     }
 
 
@@ -102,8 +118,6 @@ public class activity_blinds extends AppCompatActivity {
 
     }
 
-
-
     // Atualizar Estores
     public void updateBlinds()
     {
@@ -132,7 +146,6 @@ public class activity_blinds extends AppCompatActivity {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
                     params.put("idEstore", idEstore);
-
 
                     // ver qual a posicao
                     posicao = String.valueOf(nb.getValue());

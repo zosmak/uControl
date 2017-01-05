@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,18 +40,48 @@ public class activity_audio extends AppCompatActivity {
     private NumberPicker nb;
     private ListView listaDispositivos;
     private String estado, volume, idAudio;
+    private Switch s;
+    private ImageView confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio);
 
+        // listar todos os dispositivos
+        listarDispositivos();
+
         nb = (NumberPicker) findViewById(R.id.nbAudio);
+        confirm = (ImageView)findViewById(R.id.confirmUpdateAudio);
 
         nb.setMaxValue(50);
         nb.setMinValue(0);
         nb.setWrapSelectorWheel(false);
-        listarDispositivos();
+
+        s = (Switch) findViewById(R.id.audio_switch);
+
+        // ver se está ligado ou não
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked == true){
+                    estado = String.valueOf(1);
+                }else{
+                    estado = String.valueOf(0);
+                }
+
+            }
+        });
+
+        // fazer update
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateAudio();
+            }
+        });
     }
 
 
@@ -69,10 +103,12 @@ public class activity_audio extends AppCompatActivity {
                                 final ArrayList<String> dispositivos = new ArrayList<>();
                                 ArrayAdapter adapterDispositivos = new ArrayAdapter(activity_audio.this, android.R.layout.simple_list_item_checked, dispositivos);
 
+                                String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     idAudio = obj.getString("idAudio");
-                                    dispositivos.add(idAudio);
+                                    descricao = obj.getString("descricao");
+                                    dispositivos.add(descricao);
                                 }
                                 listaDispositivos = (ListView)findViewById(R.id.lista_dispositivos);
                                 listaDispositivos.setAdapter(adapterDispositivos);
@@ -87,7 +123,6 @@ public class activity_audio extends AppCompatActivity {
                             error.printStackTrace();
                         }
                     });
-            //Volley.newRequestQueue(this).add(jsonRequest);
             queue.add(jsonRequest);
         }
         catch(Exception ex)
@@ -130,30 +165,6 @@ public class activity_audio extends AppCompatActivity {
 
                     // ver qual o volume
                     volume = String.valueOf(nb.getValue());
-
-                    // ver se está ligado ou não
-                    /*s.setChecked(true);
-                    s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-                        @Override
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                            if(isChecked){
-                                Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-
-                    if (s.isChecked()) {
-                        Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                    }*/
-
-                    estado = String.valueOf(1);
 
                     params.put("estado", estado);
                     params.put("volume", volume);

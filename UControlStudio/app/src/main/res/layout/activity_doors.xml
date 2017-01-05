@@ -53,7 +53,7 @@
 
         <ImageView
             app:srcCompat="@drawable/doorsconfirm"
-            android:id="@+id/imageButton"
+            android:id="@+id/confirmUpdateDoors"
             android:layout_width="200dp"
             android:paddingBottom="0dp"
             android:layout_height="wrap_content"

@@ -61,6 +61,21 @@ public class activity_air_conditioner extends AppCompatActivity {
         rfreeze = (RadioButton)findViewById(R.id.radioFreezeAc);
         s = (Switch) findViewById(R.id.ac_switch);
 
+        // ver se está ligado ou não
+        s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked == true){
+                    estado = String.valueOf(1);
+                }else{
+                    estado = String.valueOf(0);
+                }
+
+            }
+        });
+
         ac_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +84,7 @@ public class activity_air_conditioner extends AppCompatActivity {
             }
         });
 
+        // fazer update
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,6 +95,8 @@ public class activity_air_conditioner extends AppCompatActivity {
         nb.setMaxValue(40);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
+
+
 
         listarAc();
     }
@@ -188,36 +206,8 @@ public class activity_air_conditioner extends AppCompatActivity {
                     // ver qual a temperatura
                     temperatura = String.valueOf(nb.getValue());
 
-                    // ver se está ligado ou não
-                    /*s.setChecked(true);
-                    s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-                        @Override
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                            if(isChecked){
-                                Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                                estado = String.valueOf(1);
-                            }else{
-                                Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                                estado = String.valueOf(0);
-                            }
-
-                        }
-                    });*/
-
-                    estado = String.valueOf(0);
-
-                    if (s.isChecked()) {
-                        Toast.makeText(activity_air_conditioner.this, "ON", Toast.LENGTH_SHORT).show();
-                        estado = String.valueOf(1);
-                    } else {
-                        Toast.makeText(activity_air_conditioner.this, "OFF", Toast.LENGTH_SHORT).show();
-                        estado = String.valueOf(0);
-                    }
-
                     params.put("modo", modo);
-                    params.put("estado", estado);
+                    params.put("estado", estado.toString());
                     params.put("temperatura", temperatura);
                     return params;
                 }
