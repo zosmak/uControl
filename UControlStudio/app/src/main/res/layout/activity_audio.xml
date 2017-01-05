@@ -44,7 +44,7 @@
             android:textOn='On'
             android:textOff='Off'
             android:showText="true"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="?attr/colorControlActivated"
             android:layout_height="60dp"
             android:id="@+id/audio_switch"

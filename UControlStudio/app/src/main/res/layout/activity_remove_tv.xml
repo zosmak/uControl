@@ -15,6 +15,17 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:text="Name of television"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarm"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:fontFamily="Bariol"
+            android:textColor="@color/color_alarms"
+            android:layout_marginTop="60dp"
+            android:paddingBottom="20dp"/>
 
         <Spinner
             android:layout_width="match_parent"
@@ -23,12 +34,20 @@
             android:layout_alignParentEnd="true"
             android:id="@+id/spinnerTvRemove"
             android:layout_marginBottom="100dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="271dp"
+            android:layout_height="44dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arcondicionadoconfirm"
-            android:id="@+id/confirmRemoverTv" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/alarmconfirm"
+                android:id="@+id/confirmRemoveAudio"
+                android:layout_marginLeft="60dp"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -16,7 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Spinner
+        <TextView
+            android:text="Name of the illumination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarm"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:fontFamily="Bariol"
+            android:textColor="@color/color_ilumination"
+            android:layout_marginTop="60dp"
+            android:paddingBottom="20dp"/>
+
+    <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -24,11 +36,17 @@
             android:id="@+id/spinnerIluminacaoRemove"
             android:layout_marginBottom="100dp" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="271dp"
+        android:layout_height="44dp">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arcondicionadoconfirm"
-            android:id="@+id/confirmRemoverIluminacao" />
+            app:srcCompat="@drawable/audioconfirm"
+            android:id="@+id/confirmRemoverIluminacao"
+            android:paddingLeft="60dp"/>
     </LinearLayout>
-
+</LinearLayout>
 </RelativeLayout>

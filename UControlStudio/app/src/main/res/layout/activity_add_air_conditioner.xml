@@ -9,16 +9,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.Add.addTelevision"
+    tools:context="ucontrol.ucontrolstudio.Add.addAirConditioner"
     android:orientation="vertical"
-    android:weightSum="1"
-    android:background="@color/colorPrimaryAc">
+    android:weightSum="1">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="50dp">
 
         <TextView
@@ -29,12 +28,13 @@
             android:textStyle="normal|bold"
             android:textSize="20sp"
             android:fontFamily="Bariol"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/color_ac" />
 
         <Spinner
             android:layout_height="wrap_content"
             android:id="@+id/spinnerDivionsAc"
             android:layout_marginLeft="30dp"
+            android:textColor="@color/color_ac"
             android:layout_width="150dp" />
     </LinearLayout>
 
@@ -46,27 +46,29 @@
         android:textStyle="normal|bold"
         android:textSize="20sp"
         android:fontFamily="Bariol"
-        android:textColor="@color/white" />
+        android:textColor="@color/color_ac"
+        android:layout_marginTop="30dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textColor="@android:color/white"
+        android:textColor="@color/color_ac"
         android:id="@+id/nameNewAc"
         android:layout_marginBottom="50dp"
         android:inputType="textPersonName" />
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="271dp"
+        android:layout_height="44dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/arcondicionadoconfirm"
-            android:id="@+id/confirmNewAc" />
+            android:id="@+id/confirmNewAc"
+            android:layout_marginLeft="60dp"/>
     </LinearLayout>
 
 </LinearLayout>

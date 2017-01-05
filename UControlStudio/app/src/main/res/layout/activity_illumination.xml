@@ -9,8 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_illumination"
-    android:background="@color/color_ilumination">
+    tools:context="ucontrol.ucontrolstudio.activity_illumination">
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,7 +25,7 @@
             android:fontFamily="bariol"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/color_doors"
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
@@ -40,18 +39,22 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="90dp">
 
             <Switch
                 android:text="Power:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ilumination_switch"
-                android:textColor="@android:color/white"
                 android:textOn='On'
                 android:textOff='Off'
                 android:showText="true"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="@color/color_doors"
+                android:textSize="20dp"
+                android:textStyle="normal|bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -63,25 +66,28 @@
                 android:text="Intensity:"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
-                android:textColor="@android:color/white"
+                android:textColor="@color/color_doors"
                 android:layout_width="wrap_content"
-                android:paddingTop="80dp"
-                android:paddingRight="15dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="80dp"
+                android:textSize="20dp"
+                android:textStyle="normal|bold"/>
 
             <NumberPicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/nbIllumination">
+                android:layout_width="50dp"
+                android:layout_height="120dp"
+                android:id="@+id/nbIllumination"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp">
             </NumberPicker>
 
             <ImageView
                 app:srcCompat="@drawable/ilumchange"
                 android:id="@+id/imageButton"
                 android:layout_height="80dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="55dp"
                 android:layout_width="wrap_content"
-                android:paddingBottom="40dp"
-                android:paddingLeft="50dp" />
+                android:layout_marginLeft="10dp" />
 
         </LinearLayout>
 

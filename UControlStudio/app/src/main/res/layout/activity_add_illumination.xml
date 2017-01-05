@@ -11,14 +11,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ucontrol.ucontrolstudio.Add.addTelevision"
     android:orientation="vertical"
-    android:weightSum="1"
-    android:background="@color/colorPrimaryIlumination">
+    android:weightSum="1">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="50dp">
 
         <TextView
@@ -29,13 +28,14 @@
             android:textStyle="normal|bold"
             android:textSize="20sp"
             android:fontFamily="Bariol"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/color_ilumination" />
 
         <Spinner
             android:layout_height="wrap_content"
             android:id="@+id/spinnerDivisionsIllumination"
             android:layout_marginLeft="30dp"
-            android:layout_width="150dp" />
+            android:layout_width="150dp"
+            android:textColor="@color/color_ilumination"/>
     </LinearLayout>
 
     <TextView
@@ -46,27 +46,29 @@
         android:textStyle="normal|bold"
         android:textSize="20sp"
         android:fontFamily="Bariol"
-        android:textColor="@color/white" />
+        android:textColor="@color/color_ilumination"
+        android:layout_marginTop="30dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textColor="@android:color/white"
         android:id="@+id/nameNewAc"
         android:layout_marginBottom="50dp"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/color_ilumination"/>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="271dp"
+        android:layout_height="44dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arcondicionadoconfirm"
-            android:id="@+id/confirmNewAc" />
+            app:srcCompat="@drawable/audioconfirm"
+            android:id="@+id/confirmNewAc"
+            android:layout_marginLeft="60dp"/>/>
     </LinearLayout>
 
 </LinearLayout>

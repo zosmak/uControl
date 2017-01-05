@@ -16,19 +16,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:text="Name of the blind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarm"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:fontFamily="Bariol"
+            android:textColor="@color/color_blinds"
+            android:layout_marginTop="60dp"
+            android:paddingBottom="20dp"/>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/spinnerEstoreRemove"
-            android:layout_marginBottom="100dp" />
+            android:layout_marginBottom="100dp"
+            android:textColor="@color/color_blinds"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="271dp"
+        android:layout_height="44dp">
 
-        <ImageView
+
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arcondicionadoconfirm"
-            android:id="@+id/confirmRemoverEstore" />
+            app:srcCompat="@drawable/blindsconfirm"
+            android:id="@+id/confirmRemoverEstore"
+            android:paddingLeft="60dp"/>
     </LinearLayout>
-
+</LinearLayout>
 </RelativeLayout>

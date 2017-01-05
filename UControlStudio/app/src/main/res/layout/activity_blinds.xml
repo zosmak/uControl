@@ -33,7 +33,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/color_blinds"
             android:choiceMode="multipleChoice"
             android:id="@+id/lista_blinds"
             android:layout_weight="0.20" />
@@ -41,27 +41,9 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:layout_height="50dp">
-
-            <Switch
-                android:text="State:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ilumination_switch"
-                android:textColor="@android:color/white"
-                android:textOn='Open'
-                android:textOff='Closed'
-                android:showText="true"
-                android:layout_weight="1"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_marginTop="70dp">
 
             <TextView
                 android:text="Lift:"
@@ -71,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:paddingTop="80dp"
                 android:paddingRight="15dp"
+                android:textSize="20sp"
                 android:textStyle="normal|bold" />
 
             <NumberPicker
@@ -86,7 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginTop="65dp"
-                android:paddingLeft="20dp" />
+                android:paddingLeft="30dp"
+                android:paddingRight="20dp"/>
 
         </LinearLayout>
 

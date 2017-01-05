@@ -9,8 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ucontrol.ucontrolstudio.activity_doors"
-    android:background="@color/colorPrimaryDoors">
+    tools:context="ucontrol.ucontrolstudio.activity_doors">
 
     <LinearLayout
         android:orientation="vertical"
@@ -26,14 +25,14 @@
             android:fontFamily="bariol"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@color/color_doors"
             android:layout_height="50dp"
             android:textStyle="normal|bold" />
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="261dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/color_doors"
             android:choiceMode="multipleChoice"
             android:id="@+id/lista_doors" />
 
@@ -43,12 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="79dp"
                 android:id="@+id/doors_switch"
-                android:textColor="@android:color/white"
                 android:switchTextAppearance="@style/TextAppearance.AppCompat.Button"
                 android:textOn='On'
                 android:textOff='Off'
                 android:showText="true"
-                android:checked="false" />
+                android:textColor="@color/color_doors"
+                android:textSize="20dp"
+                android:checked="false"
+                android:textStyle="normal|bold"/>
 
         <ImageView
             app:srcCompat="@drawable/doorsconfirm"

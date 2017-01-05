@@ -16,19 +16,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:text="Name of the recording"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarm"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
+            android:fontFamily="Bariol"
+            android:textColor="@color/colorTelevision"
+            android:layout_marginTop="60dp"
+            android:paddingBottom="20dp"/>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/spinnerGravacoesRemove"
-            android:layout_marginBottom="100dp" />
+            android:layout_marginBottom="100dp"
+            android:textColor="@color/colorTelevision"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="271dp"
+        android:layout_height="44dp">
 
-        <ImageView
+
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arcondicionadoconfirm"
-            android:id="@+id/confirmRemoverGravacoes" />
+            app:srcCompat="@drawable/alarmconfirm"
+            android:id="@+id/confirmRemoverGravacoes"
+            android:paddingLeft="60dp"/>
     </LinearLayout>
-
+</LinearLayout>
 </RelativeLayout>
