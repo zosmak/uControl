@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ucontrol.ucontrolstudio.Remove.remove_gravacoes;
 import ucontrol.ucontrolstudio.Remove.remove_tv;
 
 public class activity_tv_recordings extends AppCompatActivity {
@@ -41,6 +43,7 @@ public class activity_tv_recordings extends AppCompatActivity {
     private Spinner spinner;
     private String idTv;
     private ImageView gravar;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,15 @@ public class activity_tv_recordings extends AppCompatActivity {
 
         tv = (Button)findViewById(R.id.channels_recordings);
         gravar = (ImageView)findViewById(R.id.botaoGravar);
+        textView = (TextView)findViewById(R.id.textViewRecordings);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), remove_gravacoes.class);
+                startActivity(intent);
+            }
+        });
 
         listarGravacoes();
 
@@ -90,7 +102,7 @@ public class activity_tv_recordings extends AppCompatActivity {
                                 ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_checked, recordings);
 
                                 String idGravacao;
-                                for (int i = 1; i < response.length(); ++i) {
+                                for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     idGravacao = obj.getString("idGravacao");
                                     recordings.add(idGravacao);
@@ -123,7 +135,7 @@ public class activity_tv_recordings extends AppCompatActivity {
     {
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?canal=canal&horaInicio=0&horaFim=0&idTv="+idTv;
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?canal=1&horaInicio=0&horaFim=0&idTv="+idTv;
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

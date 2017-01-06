@@ -53,7 +53,7 @@ public class activity_air_conditioner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_air_conditioner);
 
-        ac_schedule = (ImageView)findViewById(R.id.ac_schedule);
+        ac_schedule = (ImageView)findViewById(R.id.ac_schedule_intent);
         nb = (NumberPicker) findViewById(R.id.nbAc);
         change = (ImageView)findViewById(R.id.changeAc);
         rcold = (RadioButton)findViewById(R.id.radioColdAc);

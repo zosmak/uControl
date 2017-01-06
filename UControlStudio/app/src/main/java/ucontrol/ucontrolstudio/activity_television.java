@@ -118,6 +118,7 @@ public class activity_television extends AppCompatActivity {
                                     idTv = obj.getString("idTv");
                                     descricao = obj.getString("descricao");
                                     canal = obj.getString("canal");
+                                    estado = obj.getString("estado");
                                     tv.add(descricao);
                                 }
                                 ltv= (ListView)findViewById(R.id.lista_tvs);

@@ -101,6 +101,10 @@
         <activity android:name=".Remove.remove_audio"
             android:label="Remove audio"
             android:theme="@style/AppThemeAudio"/>
+
+        <activity android:name=".Remove.remove_gravacoes"
+            android:label="Remove recordings"
+            android:theme="@style/AppThemeTv"/>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.

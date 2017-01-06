@@ -69,13 +69,10 @@ public class remove_gravacoes extends AppCompatActivity {
                                 final ArrayList<String> gravacoes = new ArrayList<>();
                                 ArrayAdapter adapterGravacoes = new ArrayAdapter(remove_gravacoes.this, android.R.layout.simple_list_item_1, gravacoes);
 
-
-                                String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
-                                    descricao = obj.getString("descricao");
                                     idGravacao = obj.getString("idGravacao");
-                                    gravacoes.add(descricao);
+                                    gravacoes.add(idGravacao);
                                 }
                                 // colocar a informacao na lista
                                 spinner = (Spinner) findViewById(R.id.spinnerGravacoesRemove);

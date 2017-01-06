@@ -46,7 +46,7 @@ public class activity_ac_schedule extends AppCompatActivity {
     private int horas=12, minutos=00;
     private ImageView confirm;
     private RadioButton rcold, rregular, rfreeze;
-    private String modo, temperatura, idArCondicionado;
+    private String modo, intensidade, idArCondicionado;
     private Spinner spinner;
 
 
@@ -62,10 +62,15 @@ public class activity_ac_schedule extends AppCompatActivity {
         acend = (TextView) findViewById(R.id.end);
         confirm = (ImageView)findViewById(R.id.schedule_confirm);
         spinner =(Spinner)findViewById(R.id.spinnerAcSchedule);
+        rcold = (RadioButton)findViewById(R.id.radioColdAc_schedule);
+        rregular = (RadioButton)findViewById(R.id.radioRegularAc_schedule);
+        rfreeze = (RadioButton)findViewById(R.id.radioFreezeAc_schedule);
 
         nb.setMaxValue(40);
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
+
+        spinnerAc();
 
         // ver qual o modo
         if(rcold.isChecked()){
@@ -77,10 +82,6 @@ public class activity_ac_schedule extends AppCompatActivity {
         else if(rfreeze.isChecked()){
             modo = rfreeze.getText().toString();
         }
-
-        // ver qual a temperatura
-        temperatura = String.valueOf(nb.getValue());
-
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +100,10 @@ public class activity_ac_schedule extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // ver qual a temperatura
+                intensidade = String.valueOf(nb.getValue());
+
                 inserirAc();
             }
         });
@@ -168,7 +173,7 @@ public class activity_ac_schedule extends AppCompatActivity {
     {
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ac_schedule.php?horaInicio="+acstart.getText().toString()+"&horaFim="+acend.getText().toString()+"&modo="+modo.toString()+"&intensidade="+temperatura+"idAc"+idArCondicionado;
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ac_schedule.php?horaInicio="+acstart.getText().toString()+"&horaFim="+acend.getText().toString()+"&modo="+modo.toString()+"&intensidade="+intensidade+"&idAc="+idArCondicionado;
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -259,7 +264,7 @@ public class activity_ac_schedule extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
 
-                        acstart.setText(hourOfDay + ":" + minute);
+                        acstart.setText(hourOfDay + ":" + minute + ":" + "00");
                     }
                 }, horas, minutos, false);
         timePickerDialog.show();
@@ -275,7 +280,7 @@ public class activity_ac_schedule extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay,
                                           int minute) {
 
-                        acend.setText(hourOfDay + ":" + minute);
+                        acend.setText(hourOfDay + ":" + minute + ":" + "00");
                     }
                 }, horas, minutos, false);
         timePickerDialog.show();
