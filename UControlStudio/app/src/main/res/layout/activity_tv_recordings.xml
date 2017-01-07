@@ -55,6 +55,7 @@
             android:layout_width="50dp"
             android:layout_marginTop="100dp"
             android:layout_marginLeft="10dp"/>
+
         <Spinner
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -65,7 +66,7 @@
         <NumberPicker
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/nbTv_recordins"
+            android:id="@+id/nbTv_recordings"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="10dp">
         </NumberPicker>

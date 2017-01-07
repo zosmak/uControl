@@ -57,7 +57,11 @@ public class activity_tv_recordings extends AppCompatActivity {
         tv = (Button)findViewById(R.id.channels_recordings);
         gravar = (ImageView)findViewById(R.id.botaoGravar);
         textView = (TextView)findViewById(R.id.textViewRecordings);
-        nb = (NumberPicker) findViewById(R.id.nbTv_recordins);
+        nb = (NumberPicker) findViewById(R.id.nbTv_recordings);
+
+        nb.setMinValue(1);
+        nb.setMaxValue(400);;
+        nb.setWrapSelectorWheel(false);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,13 +84,13 @@ public class activity_tv_recordings extends AppCompatActivity {
         gravar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // ver qual o canal
+                canal = String.valueOf(nb.getValue());
                 gravar();
             }
         });
 
-        nb.setMaxValue(400);
-        nb.setMinValue(1);
-        nb.setWrapSelectorWheel(false);
+
 
     }
 
@@ -113,7 +117,6 @@ public class activity_tv_recordings extends AppCompatActivity {
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     idGravacao = obj.getString("idGravacao");
-                                    //canal = obj.getString("canal");
                                     recordings.add(idGravacao);
                                 }
                                 lr= (ListView)findViewById(R.id.lista_recordings);
@@ -144,7 +147,7 @@ public class activity_tv_recordings extends AppCompatActivity {
     {
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?"canal=canal.ToString()"&horaInicio=0&horaFim=0&idTv="+idTv;
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_gravacoes.php?canal="+canal.toString()+"&horaInicio=0&horaFim=0&idTv="+idTv;
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
