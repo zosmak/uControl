@@ -29,7 +29,7 @@ public class addAlarm extends AppCompatActivity {
 
     private EditText descricao;
     private ImageView confirmar;
-    private Spinner spinnerDiv, spinnerSensor;
+    private Spinner spinnerDiv;
     private String idDivisao;
 
     @Override
@@ -53,9 +53,10 @@ public class addAlarm extends AppCompatActivity {
     {
         try
         {
+            descricao = (EditText)findViewById(R.id.nameNewAlarm);
             String nomeAlm = "" + descricao.getText().toString();
             nomeAlm = nomeAlm.replaceAll(" ", "%20");
-            descricao = (EditText)findViewById(R.id.nameNewAlarm);
+
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?descricao="+nomeAlm+"&divisao="+idDivisao.toString()+"&estado=0";
 

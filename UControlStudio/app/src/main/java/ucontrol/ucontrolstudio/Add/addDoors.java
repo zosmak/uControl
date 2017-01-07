@@ -56,9 +56,10 @@ public class addDoors extends AppCompatActivity {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewDoor);
+            String nomePorta = "" + descricao.getText().toString();
+            nomePorta = nomePorta.replaceAll(" ", "%20");
 
-
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_porta.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_porta.php?descricao="+nomePorta+"&divisao="+idDivisao.toString()+"&estado=0";
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){
