@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="30dp"
+        android:layout_marginLeft="5dp"
         android:textColor="@color/color_ac"
         android:textSize="20sp"
         android:textStyle="normal|bold" />
@@ -27,6 +28,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/namedivision"
+        android:hint="Insert your division name..."
         android:layout_height="wrap_content"
         android:textColor="@color/color_ac"/>
 

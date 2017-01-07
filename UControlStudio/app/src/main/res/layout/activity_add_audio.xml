@@ -48,6 +48,7 @@
         android:textSize="20sp"
         android:fontFamily="Bariol"
         android:textColor="@color/color_audio"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="30dp"/>
 
     <EditText
@@ -57,6 +58,7 @@
         android:textColor="@color/color_audio"
         android:id="@+id/nameNewAudio"
         android:layout_marginBottom="50dp"
+        android:hint="Insert your audio name..."
         android:inputType="textPersonName" />
 
     <LinearLayout

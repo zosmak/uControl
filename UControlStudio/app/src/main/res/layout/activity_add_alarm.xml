@@ -47,6 +47,7 @@
         android:textSize="20sp"
         android:fontFamily="Bariol"
         android:textColor="@color/color_alarms"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="30dp"/>
 
     <EditText
@@ -56,6 +57,7 @@
         android:textColor="@color/color_alarms"
         android:id="@+id/nameNewAlarm"
         android:layout_marginBottom="50dp"
+        android:hint="Insert your alarm name..."
         android:inputType="textPersonName"  />
 
     <LinearLayout
