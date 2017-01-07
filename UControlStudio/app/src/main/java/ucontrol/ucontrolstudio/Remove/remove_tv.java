@@ -119,6 +119,7 @@ public class remove_tv extends AppCompatActivity {
 
     public void removerTv()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_tv.php";
@@ -143,7 +144,7 @@ public class remove_tv extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idTv", idTv);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

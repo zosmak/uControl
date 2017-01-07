@@ -57,6 +57,7 @@ public class addDoors extends AppCompatActivity {
         {
             descricao = (EditText)findViewById(R.id.nameNewDoor);
 
+
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_porta.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0";
 
             // ver se tem uam descriçao

@@ -32,8 +32,7 @@ public class addAirConditioner extends AppCompatActivity {
     private ImageView confirmar;
     private Spinner spinner;
     private String idDivisao;
-    private String idAc;
-    private TextView tv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +59,10 @@ public class addAirConditioner extends AppCompatActivity {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewAc);
+            String nomeAc = "" + descricao.getText().toString();
+            nomeAc = nomeAc.replaceAll(" ", "%20");
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+nomeAc+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){

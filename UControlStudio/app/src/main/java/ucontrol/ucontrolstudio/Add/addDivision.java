@@ -52,8 +52,10 @@ public class addDivision extends AppCompatActivity {
         try
         {
             descricao = (EditText)findViewById(R.id.namedivision);
+            String nomeDivision = "" + descricao.getText().toString();
+            nomeDivision = nomeDivision.replaceAll(" ", "%20");
 
-            String url = "http://jcc240796.000webhostapp.com/base_dados_uControl/inserir_divisao.php?descricao="+descricao.getText().toString();
+            String url = "http://jcc240796.000webhostapp.com/base_dados_uControl/inserir_divisao.php?descricao="+nomeDivision;
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){

@@ -54,8 +54,10 @@ public class addBlinds extends AppCompatActivity {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewBlind);
+            String nomeEstore = "" + descricao.getText().toString();
+            nomeEstore = nomeEstore.replaceAll(" ", "%20");
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_estore.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&posicao=10";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_estore.php?descricao="+nomeEstore+"&divisao="+idDivisao.toString()+"&posicao=10";
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){

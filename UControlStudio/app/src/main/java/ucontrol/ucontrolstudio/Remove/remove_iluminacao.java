@@ -114,6 +114,7 @@ public class remove_iluminacao extends AppCompatActivity {
 
     public void removerIluminacao()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_iluminacao.php";
@@ -138,7 +139,7 @@ public class remove_iluminacao extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idIluminacao", idIluminacao);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

@@ -53,9 +53,11 @@ public class addAlarm extends AppCompatActivity {
     {
         try
         {
+            String nomeAlm = "" + descricao.getText().toString();
+            nomeAlm = nomeAlm.replaceAll(" ", "%20");
             descricao = (EditText)findViewById(R.id.nameNewAlarm);
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?"+"descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?descricao="+nomeAlm+"&divisao="+idDivisao.toString()+"&estado=0";
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){

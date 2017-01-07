@@ -112,6 +112,7 @@ public class remove_gravacoes extends AppCompatActivity {
 
     public void removerGravacoes()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_gravacoes.php";
@@ -136,7 +137,7 @@ public class remove_gravacoes extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idGravacao", idGravacao);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

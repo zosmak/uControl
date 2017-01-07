@@ -55,8 +55,10 @@ public class addAudio extends AppCompatActivity {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewAudio);
+            String nomeAudio = "" + descricao.getText().toString();
+            nomeAudio = nomeAudio.replaceAll(" ", "%20");
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_audio.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&volume=0";
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_audio.php?descricao="+nomeAudio+"&divisao="+idDivisao.toString()+"&estado=0&volume=0";
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){

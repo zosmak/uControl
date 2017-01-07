@@ -115,6 +115,7 @@ public class remove_estore extends AppCompatActivity {
 
     public void removerEstore()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_estore.php";
@@ -139,7 +140,7 @@ public class remove_estore extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idEstore", idEstore);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

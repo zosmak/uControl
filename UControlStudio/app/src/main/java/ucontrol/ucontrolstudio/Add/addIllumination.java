@@ -55,8 +55,11 @@ public class addIllumination extends AppCompatActivity {
         try
         {
             descricao = (EditText)findViewById(R.id.nameNewAc);
+            String nomeIllumination = "" + descricao.getText().toString();
+            nomeIllumination = nomeIllumination.replaceAll(" ", "%20");
 
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_iluminacao.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&intensidade=0";
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_iluminacao.php?descricao="+nomeIllumination+"&divisao="+idDivisao.toString()+"&estado=0&intensidade=0";
 
             // ver se tem uam descriçao
             if(descricao.getText().toString().equals("")){

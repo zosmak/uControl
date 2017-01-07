@@ -120,6 +120,7 @@ public class remove_divisao extends AppCompatActivity {
 
     public void removerDivisao()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_divisao.php";
@@ -144,7 +145,7 @@ public class remove_divisao extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idDivisao", idDivisao);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

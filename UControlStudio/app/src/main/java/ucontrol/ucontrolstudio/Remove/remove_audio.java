@@ -130,6 +130,7 @@ public class remove_audio extends AppCompatActivity {
 
     public void removerAudio()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_audio.php";
@@ -154,7 +155,7 @@ public class remove_audio extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idAudio", idAudio);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

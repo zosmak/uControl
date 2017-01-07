@@ -115,6 +115,7 @@ public class remove_alarme extends AppCompatActivity {
 
     public void removerAlarme()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remove_alarme.php";
@@ -139,7 +140,7 @@ public class remove_alarme extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idAlarme", idAlarme);
+                    params.put("descricao", selected);
                     return params;
                 }
             };

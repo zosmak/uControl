@@ -125,6 +125,7 @@ public class remove_ac extends AppCompatActivity {
 
     public void removerAc()
     {
+        final String selected = spinner.getSelectedItem().toString();
         try
         {
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/remover_ac.php";
@@ -149,7 +150,7 @@ public class remove_ac extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idArCondicionado", idArCondicionado);
+                    params.put("descricao", selected);
                     return params;
                 }
             };
