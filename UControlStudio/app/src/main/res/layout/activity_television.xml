@@ -24,7 +24,7 @@
             tools:text="Channels"
             android:textColor="@android:color/white"
             android:background="@android:color/darker_gray"
-            android:layout_height="172dp"
+            android:layout_height="120dp"
             android:drawableBottom="@color/colorPrimary" />
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_weight="0.5"
             tools:text="Recordings"
             android:background="?attr/colorAccent"
-            android:layout_height="172dp" />
+            android:layout_height="120dp" />
     </LinearLayout>
 
     <LinearLayout

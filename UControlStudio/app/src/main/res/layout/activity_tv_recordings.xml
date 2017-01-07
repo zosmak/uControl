@@ -24,7 +24,7 @@
             android:textColor="@android:color/white"
             tools:text="Channels"
             android:background="?attr/colorAccent"
-            android:layout_height="172dp" />
+            android:layout_height="120dp" />
 
         <Button
             android:text="Recordings"
@@ -34,7 +34,7 @@
             android:layout_weight="0.5"
             tools:text="Recordings"
             android:background="@android:color/darker_gray"
-            android:layout_height="172dp" />
+            android:layout_height="120dp" />
 
     </LinearLayout>
 
@@ -49,11 +49,11 @@
         android:layout_marginBottom="34dp">
 
         <ImageView
-            android:layout_height="50dp"
+            android:layout_height="75dp"
             app:srcCompat="@drawable/botao_recordings"
             android:id="@+id/botaoGravar"
             android:layout_width="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="100dp"
             android:layout_marginLeft="10dp"/>
         <Spinner
             android:layout_width="250dp"
@@ -61,24 +61,36 @@
             android:id="@+id/spinnerTvRecordings"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="-35dp"/>
+
+        <NumberPicker
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/nbTv_recordins"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp">
+        </NumberPicker>
+
         <TextView
             android:text="Recordings"
             android:layout_width="match_parent"
             android:id="@+id/textViewRecordings"
             android:fontFamily="bariol"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textAlignment="center"
             android:textColor="@color/colorTelevision"
             android:layout_height="match_parent"
             android:textStyle="normal|bold"
             android:paddingTop="20dp"/>
 
+        
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:textColor="@android:color/white"
             android:id="@+id/lista_recordings"
             android:layout_weight="2.17" />
-        </LinearLayout>
+        
+    </LinearLayout>
+
 
 </RelativeLayout>
