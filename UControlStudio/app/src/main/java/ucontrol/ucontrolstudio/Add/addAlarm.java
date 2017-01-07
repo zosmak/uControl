@@ -57,6 +57,11 @@ public class addAlarm extends AppCompatActivity {
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_alarme.php?"+"descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0";
 
+            // ver se tem uam descriçao
+            if(descricao.getText().toString().equals("")){
+                Toast.makeText(addAlarm.this, "Insert a name, please!", Toast.LENGTH_SHORT).show();
+            }
+            else {
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
@@ -78,6 +83,7 @@ public class addAlarm extends AppCompatActivity {
             });
             // Add the request to the queue
             Volley.newRequestQueue(this).add(stringRequest);
+            }
         }
         catch(Exception ex)
         {

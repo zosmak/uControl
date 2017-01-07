@@ -58,6 +58,11 @@ public class addIllumination extends AppCompatActivity {
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_iluminacao.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&intensidade=0";
 
+            // ver se tem uam descriçao
+            if(descricao.getText().toString().equals("")){
+                Toast.makeText(addIllumination.this, "Insert a name, please!", Toast.LENGTH_SHORT).show();
+            }
+            else {
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
@@ -79,6 +84,7 @@ public class addIllumination extends AppCompatActivity {
             });
             // Add the request to the queue
             Volley.newRequestQueue(this).add(stringRequest);
+            }
         }
         catch(Exception ex)
         {

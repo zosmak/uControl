@@ -58,8 +58,12 @@ public class addTelevision extends AppCompatActivity {
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_tv.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&canal=1";
 
-
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+            // ver se tem uam descriçao
+            if(descricao.getText().toString().equals("")){
+                Toast.makeText(addTelevision.this, "Insert a name, please!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -79,6 +83,7 @@ public class addTelevision extends AppCompatActivity {
             });
             // Add the request to the queue
             Volley.newRequestQueue(this).add(stringRequest);
+            }
         }
         catch(Exception ex)
         {

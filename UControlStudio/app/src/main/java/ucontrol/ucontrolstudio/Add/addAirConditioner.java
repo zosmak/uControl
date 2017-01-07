@@ -63,27 +63,34 @@ public class addAirConditioner extends AppCompatActivity {
 
             String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ar_condicionado.php?descricao="+descricao.getText().toString()+"&divisao="+idDivisao.toString()+"&estado=0&temperatura=15&modo=regular";
 
+            // ver se tem uam descriçao
+            if(descricao.getText().toString().equals("")){
+                Toast.makeText(addAirConditioner.this, "Insert a name, please!", Toast.LENGTH_SHORT).show();
+            }
+            else {
 
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
 
-                            // Result handling
-                            Toast.makeText(addAirConditioner.this, "New air conditioner added", Toast.LENGTH_SHORT).show();
+                                // Result handling
+                                Toast.makeText(addAirConditioner.this, "New air conditioner added", Toast.LENGTH_SHORT).show();
 
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-                    // Error handling
-                    Toast.makeText(addAirConditioner.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
-                    error.printStackTrace();
-                }
-            });
+                        // Error handling
+                        Toast.makeText(addAirConditioner.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                        error.printStackTrace();
+                    }
+                });
+
             // Add the request to the queue
             Volley.newRequestQueue(this).add(stringRequest);
+            }
         }
         catch(Exception ex)
         {

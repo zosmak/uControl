@@ -55,6 +55,11 @@ public class addDivision extends AppCompatActivity {
 
             String url = "http://jcc240796.000webhostapp.com/base_dados_uControl/inserir_divisao.php?descricao="+descricao.getText().toString();
 
+            // ver se tem uam descriçao
+            if(descricao.getText().toString().equals("")){
+                Toast.makeText(addDivision.this, "Insert a name, please!", Toast.LENGTH_SHORT).show();
+            }
+            else {
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
@@ -76,6 +81,7 @@ public class addDivision extends AppCompatActivity {
             });
             // Add the request to the queue
             Volley.newRequestQueue(this).add(stringRequest);
+            }
         }
         catch(Exception ex)
         {

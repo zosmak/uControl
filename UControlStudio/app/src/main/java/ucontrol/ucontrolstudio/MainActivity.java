@@ -1,10 +1,17 @@
 package ucontrol.ucontrolstudio;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // verificar estado da internet
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if(networkInfo!=null && networkInfo.isConnected()){
+        }
+        else{
+            AlertaNet();
+        }
 
         illumination  = (ImageView)findViewById(R.id.main_illumination);
         television  = (ImageView)findViewById(R.id.main_tv);
@@ -90,7 +106,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    public void AlertaNet(){
+        AlertDialog.Builder aviso = new AlertDialog.Builder(MainActivity.this);
+        aviso.setMessage("Warning, to use this application you must be connected to the internet.");
+        aviso.setCancelable(true);
+        aviso.setTitle("Warning!");
+
+        // ok
+        aviso.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert = aviso.create();
+        alert.show();
     }
 
 }
