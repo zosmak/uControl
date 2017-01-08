@@ -31,10 +31,10 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
             android:textColor="?attr/colorControlActivated"
             android:choiceMode="multipleChoice"
-            android:id="@+id/lista_alarms" />
+            android:id="@+id/lista_alarms"
+            android:layout_height="300dp" />
 
         <LinearLayout
             android:orientation="vertical"

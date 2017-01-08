@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ import java.util.Map;
 public class activity_doors extends AppCompatActivity {
 
     private ListView listaPortas;
-    private String estado, idPorta;
+    private String estado, idPorta, selected;
     private Switch s;
     private ImageView c;
 
@@ -104,6 +105,14 @@ public class activity_doors extends AppCompatActivity {
                                 }
                                 listaPortas = (ListView)findViewById(R.id.lista_doors);
                                 listaPortas.setAdapter(adapterPortas);
+
+                                // saber qual a descricao
+                                listaPortas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        selected = (String) listaPortas.getItemAtPosition(i);
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -154,7 +163,7 @@ public class activity_doors extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idPorta", idPorta);
+                    params.put("descricao", selected);
                     params.put("estado", estado);
                     return params;
                 }

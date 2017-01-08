@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -39,7 +40,7 @@ public class activity_audio extends AppCompatActivity {
 
     private NumberPicker nb;
     private ListView listaDispositivos;
-    private String estado, volume, idAudio;
+    private String estado, volume, idAudio, selected;
     private Switch s;
     private ImageView confirm;
 
@@ -112,6 +113,14 @@ public class activity_audio extends AppCompatActivity {
                                 }
                                 listaDispositivos = (ListView)findViewById(R.id.lista_dispositivos);
                                 listaDispositivos.setAdapter(adapterDispositivos);
+
+                                // saber qual a descricao
+                                listaDispositivos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        selected = (String) listaDispositivos.getItemAtPosition(i);
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -161,7 +170,7 @@ public class activity_audio extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idAudio", idAudio);
+                    params.put("descricao", selected);
 
                     // ver qual o volume
                     volume = String.valueOf(nb.getValue());

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -37,7 +38,7 @@ public class activity_blinds extends AppCompatActivity {
 
     private NumberPicker nb;
     private ListView listaEstores;
-    private String posicao, idEstore, divisao, descricao, estado;
+    private String posicao, idEstore, selected, divisao, descricao, estado;
     private ImageView change;
 
 
@@ -96,6 +97,14 @@ public class activity_blinds extends AppCompatActivity {
                                 }
                                 listaEstores = (ListView)findViewById(R.id.lista_blinds);
                                 listaEstores.setAdapter(adapterEstores);
+
+                                // saber qual a descricao
+                                listaEstores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        selected = (String) listaEstores.getItemAtPosition(i);
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -145,7 +154,7 @@ public class activity_blinds extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idEstore", idEstore);
+                    params.put("descricao", selected);
 
                     // ver qual a posicao
                     posicao = String.valueOf(nb.getValue());

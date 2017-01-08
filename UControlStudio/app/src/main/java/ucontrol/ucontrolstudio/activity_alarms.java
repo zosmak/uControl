@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -41,7 +42,7 @@ public class activity_alarms extends AppCompatActivity {
     private ListView la;
     private ImageView confirm;
     private Switch s;
-    private String idAlarme, estado;
+    private String idAlarme, estado, selected;
 
 
     @Override
@@ -109,6 +110,14 @@ public class activity_alarms extends AppCompatActivity {
                                 }
                                 la = (ListView)findViewById(R.id.lista_alarms);
                                 la.setAdapter(adapterAlarmes);
+
+                                // saber qual a descricao
+                                la.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        selected = (String) la.getItemAtPosition(i);
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -158,7 +167,7 @@ public class activity_alarms extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idAlarme", idAlarme);
+                    params.put("descricao", selected);
                     params.put("estado", estado.toString());
                     return params;
                 }

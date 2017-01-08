@@ -44,7 +44,7 @@ public class activity_air_conditioner extends AppCompatActivity {
     private NumberPicker nb;
     private ListView lac;
     private ImageView change;
-    private String estado, modo, temperatura, idArCondicionado;
+    private String estado, modo, temperatura, idArCondicionado, descricao, selected;
     private RadioButton rcold, rregular, rfreeze;
     private Switch s;
 
@@ -96,8 +96,6 @@ public class activity_air_conditioner extends AppCompatActivity {
         nb.setMinValue(1);
         nb.setWrapSelectorWheel(false);
 
-
-
         listarAc();
     }
 
@@ -120,7 +118,6 @@ public class activity_air_conditioner extends AppCompatActivity {
                                 final ArrayList<String> ac = new ArrayList<>();
                                 ArrayAdapter adapterAc = new ArrayAdapter(activity_air_conditioner.this, android.R.layout.simple_list_item_checked, ac);
 
-                                String descricao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     descricao = obj.getString("descricao");
@@ -133,12 +130,11 @@ public class activity_air_conditioner extends AppCompatActivity {
                                 lac = (ListView)findViewById(R.id.lista_ac);
                                 lac.setAdapter(adapterAc);
 
+                                // saber qual a descricao
                                 lac.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                        i++;
-                                        idArCondicionado = String.valueOf(i);
-                                        //Toast.makeText(activity_air_conditioner.this, idArCondicionado, Toast.LENGTH_SHORT).show();
+                                         selected = (String) lac.getItemAtPosition(i);
                                     }
                                 });
                             } catch (JSONException e) {
@@ -190,7 +186,7 @@ public class activity_air_conditioner extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idArCondicionado", idArCondicionado);
+                    params.put("descricao", selected);
 
                     // ver qual o modo
                     if(rcold.isChecked()){

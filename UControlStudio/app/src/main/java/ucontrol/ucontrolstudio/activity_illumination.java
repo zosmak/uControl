@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -37,7 +38,7 @@ public class activity_illumination extends AppCompatActivity {
 
     private NumberPicker nb;
     private ListView listaLuzes;
-    private String idIluminacao, descricao, estado, intensidade;
+    private String idIluminacao, descricao, estado, intensidade, selected;
     private Switch s;
     private ImageView change;
 
@@ -99,7 +100,6 @@ public class activity_illumination extends AppCompatActivity {
                                 final ArrayList<String> iluminacao = new ArrayList<>();
                                 ArrayAdapter adapterIluminacao = new ArrayAdapter(activity_illumination.this, android.R.layout.simple_list_item_checked, iluminacao);
 
-
                                 String res="";
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
@@ -112,6 +112,14 @@ public class activity_illumination extends AppCompatActivity {
                                 }
                                 listaLuzes = (ListView)findViewById(R.id.lista_ilumination);
                                 listaLuzes.setAdapter(adapterIluminacao);
+
+                                // saber qual a descricao
+                                listaLuzes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        selected = (String) listaLuzes.getItemAtPosition(i);
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -161,7 +169,7 @@ public class activity_illumination extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idIluminacao", idIluminacao);
+                    params.put("descricao", selected);
 
                     // ver qual a temperatura
                     intensidade = String.valueOf(nb.getValue());

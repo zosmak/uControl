@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -41,7 +42,7 @@ public class activity_television extends AppCompatActivity {
     private Button recordings;
     private NumberPicker nb;
     private ListView ltv;
-    private String idTv, estado, canal;
+    private String idTv, estado, canal, selected;
     private Switch s;
     private ImageView gt;
 
@@ -123,6 +124,14 @@ public class activity_television extends AppCompatActivity {
                                 }
                                 ltv= (ListView)findViewById(R.id.lista_tvs);
                                 ltv.setAdapter(adapterTv);
+
+                                // saber qual a descricao
+                                ltv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                        selected = (String) ltv.getItemAtPosition(i);
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -172,8 +181,8 @@ public class activity_television extends AppCompatActivity {
                 {
                     Map<String, String>  params = new HashMap<>();
                     // the POST parameters:
-                    params.put("idTv", idTv);
-                    params.put("estado", estado);
+                    params.put("descricao", selected);
+                    params.put("estado", estado.toString());
 
                     // ver qual o volume
                     canal = String.valueOf(nb.getValue());
