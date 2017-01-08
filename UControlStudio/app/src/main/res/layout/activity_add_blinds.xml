@@ -57,7 +57,7 @@
         android:textColor="@color/color_blinds"
         android:id="@+id/nameNewBlind"
         android:layout_marginBottom="50dp"
-        android:hint="Insert your blinds name..."
+        android:hint="Insert your blind name..."
         android:inputType="textPersonName" />
 
     <LinearLayout
