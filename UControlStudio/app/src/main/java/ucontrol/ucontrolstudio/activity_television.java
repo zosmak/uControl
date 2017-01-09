@@ -111,7 +111,7 @@ public class activity_television extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> tv = new ArrayList<>();
-                                ArrayAdapter adapterTv= new ArrayAdapter(activity_television.this, android.R.layout.simple_list_item_checked, tv);
+                                ArrayAdapter adapterTv= new ArrayAdapter(activity_television.this, android.R.layout.simple_list_item_single_choice, tv);
 
                                 String descricao;
                                 for (int i = 0; i < response.length(); ++i) {

@@ -111,7 +111,7 @@ public class activity_tv_recordings extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> recordings = new ArrayList<>();
-                                ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_checked, recordings);
+                                ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_single_choice, recordings);
 
                                 String idGravacao;
                                 for (int i = 0; i < response.length(); ++i) {
@@ -197,7 +197,7 @@ public class activity_tv_recordings extends AppCompatActivity {
                             // the response is already constructed as a JSONArray!
                             try {
                                 final ArrayList<String> tvs = new ArrayList<>();
-                                ArrayAdapter adapterTvs = new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_checked, tvs);
+                                ArrayAdapter adapterTvs = new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_1, tvs);
 
 
                                 String descricao;

@@ -34,7 +34,7 @@
         <ListView
             android:layout_width="match_parent"
             android:textColor="@color/colorPrimaryAudio"
-            android:choiceMode="multipleChoice"
+            android:choiceMode="singleChoice"
             android:id="@+id/lista_dispositivos"
             android:layout_height="162dp" />
 

@@ -97,7 +97,7 @@ public class activity_alarms extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> alarmes = new ArrayList<>();
-                                ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_checked, alarmes);
+                                ArrayAdapter adapterAlarmes = new ArrayAdapter(activity_alarms.this, android.R.layout.simple_list_item_single_choice, alarmes);
 
 
                                 String descricao;

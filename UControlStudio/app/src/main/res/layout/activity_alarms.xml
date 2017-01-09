@@ -32,7 +32,7 @@
         <ListView
             android:layout_width="match_parent"
             android:textColor="?attr/colorControlActivated"
-            android:choiceMode="multipleChoice"
+            android:choiceMode="singleChoice"
             android:id="@+id/lista_alarms"
             android:layout_height="300dp" />
 

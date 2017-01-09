@@ -56,7 +56,7 @@
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:choiceMode="multipleChoice"
+                android:choiceMode="singleChoice"
                 android:textColor="@android:color/white"
                 android:id="@+id/lista_ac"
                 android:layout_marginBottom="10dp" />

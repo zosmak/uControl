@@ -93,7 +93,7 @@ public class activity_doors extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> portas = new ArrayList<>();
-                                ArrayAdapter adapterPortas = new ArrayAdapter(activity_doors.this, android.R.layout.simple_list_item_checked, portas);
+                                ArrayAdapter adapterPortas = new ArrayAdapter(activity_doors.this, android.R.layout.simple_list_item_single_choice , portas);
 
                                 String descricao;
                                 for (int i = 0; i < response.length(); ++i) {

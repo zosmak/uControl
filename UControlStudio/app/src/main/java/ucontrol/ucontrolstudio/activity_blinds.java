@@ -83,7 +83,7 @@ public class activity_blinds extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> estores = new ArrayList<>();
-                                ArrayAdapter adapterEstores = new ArrayAdapter(activity_blinds.this, android.R.layout.simple_list_item_checked, estores);
+                                ArrayAdapter adapterEstores = new ArrayAdapter(activity_blinds.this, android.R.layout.simple_list_item_single_choice, estores);
 
                                 String descricao;
                                 for (int i = 0; i < response.length(); ++i) {

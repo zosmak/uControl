@@ -116,7 +116,7 @@ public class activity_air_conditioner extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> ac = new ArrayList<>();
-                                ArrayAdapter adapterAc = new ArrayAdapter(activity_air_conditioner.this, android.R.layout.simple_list_item_checked, ac);
+                                ArrayAdapter adapterAc = new ArrayAdapter(activity_air_conditioner.this, android.R.layout.simple_list_item_single_choice, ac);
 
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);

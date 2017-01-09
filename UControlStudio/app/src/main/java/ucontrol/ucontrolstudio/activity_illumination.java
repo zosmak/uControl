@@ -98,7 +98,7 @@ public class activity_illumination extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> iluminacao = new ArrayList<>();
-                                ArrayAdapter adapterIluminacao = new ArrayAdapter(activity_illumination.this, android.R.layout.simple_list_item_checked, iluminacao);
+                                ArrayAdapter adapterIluminacao = new ArrayAdapter(activity_illumination.this, android.R.layout.simple_list_item_single_choice, iluminacao);
 
                                 String res="";
                                 for (int i = 0; i < response.length(); ++i) {

@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:textColor="@color/color_blinds"
-            android:choiceMode="multipleChoice"
+            android:choiceMode="singleChoice"
             android:id="@+id/lista_blinds"
             android:layout_weight="0.20" />
 
