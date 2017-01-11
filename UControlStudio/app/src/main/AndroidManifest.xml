@@ -12,13 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppThemeAc">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity_illumination"
@@ -60,7 +56,6 @@
             android:name=".activity_manage"
             android:label="Manage"
             android:theme="@style/AppThemeAc" />
-
         <activity
             android:name=".activity_madd"
             android:label="Add"
@@ -69,44 +64,50 @@
             android:name=".activity_mremove"
             android:label="Remove"
             android:theme="@style/AppThemeAc" />
-
         <activity
             android:name=".Add.addDivision"
             android:label="Add division"
             android:theme="@style/AppThemeAc" />
-        <activity android:name=".Add.addTelevision"
+        <activity
+            android:name=".Add.addTelevision"
             android:label="Add television"
-            android:theme="@style/AppThemeTv"/>
-        <activity android:name=".Add.addIllumination"
+            android:theme="@style/AppThemeTv" />
+        <activity
+            android:name=".Add.addIllumination"
             android:label="Add illumination"
-            android:theme="@style/AppThemeIllumination"/>
+            android:theme="@style/AppThemeIllumination" />
         <activity
             android:name=".Add.addAirConditioner"
             android:label="Add air conditioner"
             android:theme="@style/AppThemeAc" />
-        <activity android:name=".Add.addAudio"
+        <activity
+            android:name=".Add.addAudio"
             android:label="Add audio"
-            android:theme="@style/AppThemeAudio"/>
-        <activity android:name=".Add.addBlinds"
+            android:theme="@style/AppThemeAudio" />
+        <activity
+            android:name=".Add.addBlinds"
             android:label="Add blinds"
-            android:theme="@style/AppThemeBlinds"/>
-        <activity android:name=".Add.addAlarm"
+            android:theme="@style/AppThemeBlinds" />
+        <activity
+            android:name=".Add.addAlarm"
             android:label="Add alarm"
-            android:theme="@style/AppThemeAlarms"/>
-        <activity android:name=".Add.addDoors"
+            android:theme="@style/AppThemeAlarms" />
+        <activity
+            android:name=".Add.addDoors"
             android:label="Add doors"
-            android:theme="@style/AppThemeDoors"/>
-
-        <activity android:name=".Remove.remove_ac"
+            android:theme="@style/AppThemeDoors" />
+        <activity
+            android:name=".Remove.remove_ac"
             android:label="Remove air conditioner"
-            android:theme="@style/AppThemeAc"/>
-        <activity android:name=".Remove.remove_audio"
+            android:theme="@style/AppThemeAc" />
+        <activity
+            android:name=".Remove.remove_audio"
             android:label="Remove audio"
-            android:theme="@style/AppThemeAudio"/>
-
-        <activity android:name=".Remove.remove_gravacoes"
+            android:theme="@style/AppThemeAudio" />
+        <activity
+            android:name=".Remove.remove_gravacoes"
             android:label="Remove recordings"
-            android:theme="@style/AppThemeTv"/>
+            android:theme="@style/AppThemeTv" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -115,25 +116,43 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Remove.remove_alarme"
+        <activity
+            android:name=".Remove.remove_alarme"
             android:label="Remove alarm"
-            android:theme="@style/AppThemeAlarms"/>
-        <activity android:name=".Remove.remove_divisao"
+            android:theme="@style/AppThemeAlarms" />
+        <activity
+            android:name=".Remove.remove_divisao"
             android:label="Remove division"
+<<<<<<< HEAD
             android:theme="@style/AppThemeAc"/>
         <activity android:name=".Remove.remove_estore"
+=======
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Remove.remove_estore"
+>>>>>>> origin/master
             android:label="Remove blinds"
-            android:theme="@style/AppThemeBlinds"/>
-        <activity android:name=".Remove.remove_iluminacao"
+            android:theme="@style/AppThemeBlinds" />
+        <activity
+            android:name=".Remove.remove_iluminacao"
             android:label="Remove illumination"
-            android:theme="@style/AppThemeIllumination"/>
-        <activity android:name=".Remove.remove_porta"
+            android:theme="@style/AppThemeIllumination" />
+        <activity
+            android:name=".Remove.remove_porta"
             android:label="Remove doors"
-            android:theme="@style/AppThemeDoors"/>
-        <activity android:name=".Remove.remove_tv"
+            android:theme="@style/AppThemeDoors" />
+        <activity
+            android:name=".Remove.remove_tv"
             android:label="Remove television"
-            android:theme="@style/AppThemeTv">
+            android:theme="@style/AppThemeTv"></activity>
 
+        <activity android:name=".splashScreen"
+            android:theme="@style/AppThemeAc">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
