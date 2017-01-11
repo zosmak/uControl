@@ -111,13 +111,14 @@ public class activity_tv_recordings extends AppCompatActivity {
                             try {
 
                                 final ArrayList<String> recordings = new ArrayList<>();
-                                ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_single_choice, recordings);
+                                ArrayAdapter adapterRecordings= new ArrayAdapter(activity_tv_recordings.this, android.R.layout.simple_list_item_1, recordings);
 
-                                String idGravacao;
+                                String idGravacao,canalGravacao;
                                 for (int i = 0; i < response.length(); ++i) {
                                     JSONObject obj = response.getJSONObject(i);
                                     idGravacao = obj.getString("idGravacao");
-                                    recordings.add(idGravacao);
+                                    canalGravacao = obj.getString("canal");
+                                    recordings.add("Recording nº"+idGravacao+", Channel nº "+canalGravacao);
                                 }
                                 lr= (ListView)findViewById(R.id.lista_recordings);
                                 lr.setAdapter(adapterRecordings);

@@ -42,34 +42,33 @@
 
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="34dp">
+        android:layout_height="wrap_content">
+
+        <NumberPicker
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:id="@+id/nbTv_recordings"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="150dp">
+        </NumberPicker>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerTvRecordings"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="-95dp"/>
 
         <ImageView
             android:layout_height="75dp"
             app:srcCompat="@drawable/botao_recordings"
             android:id="@+id/botaoGravar"
             android:layout_width="50dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="180dp"/>
 
-        <Spinner
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerTvRecordings"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="-35dp"/>
 
-        <NumberPicker
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/nbTv_recordings"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp">
-        </NumberPicker>
+
 
         <TextView
             android:text="Recordings"
@@ -86,11 +85,9 @@
         
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="167dp"
             android:textColor="@android:color/white"
-            android:choiceMode="singleChoice"
-            android:id="@+id/lista_recordings"
-            android:layout_weight="2.17" />
+            android:id="@+id/lista_recordings" />
         
     </LinearLayout>
 

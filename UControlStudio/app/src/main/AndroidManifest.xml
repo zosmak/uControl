@@ -123,14 +123,9 @@
         <activity
             android:name=".Remove.remove_divisao"
             android:label="Remove division"
-<<<<<<< HEAD
             android:theme="@style/AppThemeAc"/>
-        <activity android:name=".Remove.remove_estore"
-=======
-            android:theme="@style/AppTheme" />
         <activity
             android:name=".Remove.remove_estore"
->>>>>>> origin/master
             android:label="Remove blinds"
             android:theme="@style/AppThemeBlinds" />
         <activity
