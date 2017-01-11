@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import ucontrol.ucontrolstudio.MainActivity;
 import ucontrol.ucontrolstudio.R;
 import ucontrol.ucontrolstudio.activity_air_conditioner;
 import ucontrol.ucontrolstudio.activity_alarms;
@@ -63,6 +64,8 @@ public class remove_audio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 removerAudio();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

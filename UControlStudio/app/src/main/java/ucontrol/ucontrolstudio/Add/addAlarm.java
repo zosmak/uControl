@@ -1,5 +1,10 @@
 package ucontrol.ucontrolstudio.Add;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,21 +31,32 @@ import java.util.ArrayList;
 
 import ucontrol.ucontrolstudio.R;
 
-public class addAlarm extends AppCompatActivity {
+public class addAlarm extends AppCompatActivity implements SensorEventListener {
 
     private EditText descricao;
     private ImageView confirmar;
     private Spinner spinnerDiv;
     private String idDivisao;
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
+    int flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm);
+
+        // identificar sensor a utilizar
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(this, mSensor, mSensorManager.SENSOR_DELAY_NORMAL);
+
+        // listar divisoes
         spinnerDivisoes();
 
         confirmar = (ImageView) findViewById(R.id.confirmNewAlarm);
 
+        // confirmar novo alarme
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +66,7 @@ public class addAlarm extends AppCompatActivity {
     }
 
     // Inserir novo alarme
-    public  void inserirAlarm()
+    public void inserirAlarm()
     {
         try
         {
@@ -143,5 +160,18 @@ public class addAlarm extends AppCompatActivity {
         finally
         {
         }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        if((sensorEvent.values[2] > 13) && flag<=0){
+            inserirAlarm();
+            flag++;
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 }

@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -119,7 +120,7 @@
             android:theme="@style/AppThemeAlarms"/>
         <activity android:name=".Remove.remove_divisao"
             android:label="Remove division"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppThemeAc"/>
         <activity android:name=".Remove.remove_estore"
             android:label="Remove blinds"
             android:theme="@style/AppThemeBlinds"/>

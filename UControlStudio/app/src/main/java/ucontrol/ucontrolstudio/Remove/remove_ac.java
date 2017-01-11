@@ -1,5 +1,6 @@
 package ucontrol.ucontrolstudio.Remove;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ import java.util.Map;
 import ucontrol.ucontrolstudio.Add.addAirConditioner;
 import ucontrol.ucontrolstudio.Add.addAlarm;
 import ucontrol.ucontrolstudio.Add.addDoors;
+import ucontrol.ucontrolstudio.MainActivity;
 import ucontrol.ucontrolstudio.R;
 
 public class remove_ac extends AppCompatActivity {
@@ -56,6 +58,8 @@ public class remove_ac extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 removerAc();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

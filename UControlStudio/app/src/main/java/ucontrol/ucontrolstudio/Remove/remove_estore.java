@@ -1,5 +1,6 @@
 package ucontrol.ucontrolstudio.Remove;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ucontrol.ucontrolstudio.Add.addAudio;
+import ucontrol.ucontrolstudio.MainActivity;
 import ucontrol.ucontrolstudio.R;
 
 public class remove_estore extends AppCompatActivity {
@@ -48,6 +50,8 @@ public class remove_estore extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 removerEstore();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

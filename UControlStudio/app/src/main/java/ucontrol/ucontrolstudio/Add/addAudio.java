@@ -1,5 +1,9 @@
 package ucontrol.ucontrolstudio.Add;
 
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,22 +29,32 @@ import java.util.ArrayList;
 
 import ucontrol.ucontrolstudio.R;
 
-public class addAudio extends AppCompatActivity {
+public class addAudio extends AppCompatActivity implements SensorEventListener {
 
     private EditText descricao;
     private ImageView confirmar;
     private Spinner spinner;
     private String idDivisao;
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
+    int flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_audio);
 
+        // identificar sensor a utilizar
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(this, mSensor, mSensorManager.SENSOR_DELAY_NORMAL);
+
+        // listar divisoes
         spinnerDivisoes();
 
         confirmar = (ImageView) findViewById(R.id.confirmNewAudio);
 
+        // confirmar novo audio
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,5 +157,18 @@ public class addAudio extends AppCompatActivity {
         finally
         {
         }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        if((sensorEvent.values[2] > 13) && flag<=0){
+            inserirAudio();
+            flag++;
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
     }
 }
