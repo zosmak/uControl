@@ -46,7 +46,7 @@ public class activity_ac_schedule extends AppCompatActivity {
     private int horas=12, minutos=00;
     private ImageView confirm;
     private RadioButton rcold, rregular, rfreeze;
-    private String modo, intensidade, idArCondicionado;
+    private String modo, intensidade, idArCondicionado, selected;
     private Spinner spinner;
 
 
@@ -58,8 +58,8 @@ public class activity_ac_schedule extends AppCompatActivity {
         nb = (NumberPicker) findViewById(R.id.nbSchedule);
         start = (ImageView) findViewById(R.id.scheduleStart);
         end = (ImageView) findViewById(R.id.scheduleEnd);
-        acstart = (TextView) findViewById(R.id.start);
-        acend = (TextView) findViewById(R.id.end);
+        acstart = (TextView) findViewById(R.id.sStart);
+        acend = (TextView) findViewById(R.id.sEnd);
         confirm = (ImageView)findViewById(R.id.schedule_confirm);
         spinner =(Spinner)findViewById(R.id.spinnerAcSchedule);
         rcold = (RadioButton)findViewById(R.id.radioColdAc_schedule);
@@ -71,17 +71,6 @@ public class activity_ac_schedule extends AppCompatActivity {
         nb.setWrapSelectorWheel(false);
 
         spinnerAc();
-
-        // ver qual o modo
-        if(rcold.isChecked()){
-            modo = rcold.getText().toString();
-        }
-        else if(rregular.isChecked()){
-            modo = rregular.getText().toString();
-        }
-        else if(rfreeze.isChecked()){
-            modo = rfreeze.getText().toString();
-        }
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,8 +130,7 @@ public class activity_ac_schedule extends AppCompatActivity {
                                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                     @Override
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                        position++;
-                                        idArCondicionado = String.valueOf(position);
+                                        selected = (String) spinner.getItemAtPosition(position);
                                     }
 
                                     @Override
@@ -171,9 +159,27 @@ public class activity_ac_schedule extends AppCompatActivity {
     // Inserir nova programacao
     public  void inserirAc()
     {
+
+        // ver qual o modo
+        if(rcold.isChecked()){
+            modo = rcold.getText().toString();
+        }
+        else if(rregular.isChecked()){
+            modo = rregular.getText().toString();
+        }
+        else if(rfreeze.isChecked()){
+            modo = rfreeze.getText().toString();
+        }
+
         try
         {
-            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ac_schedule.php?horaInicio="+acstart.getText().toString()+"&horaFim="+acend.getText().toString()+"&modo="+modo.toString()+"&intensidade="+intensidade+"&idAc="+idArCondicionado;
+            // pegar nas datas
+            String textoacstart = acstart.getText().toString();
+            String textoacend = acend.getText().toString();
+            // substituir os espaços do url
+            selected = selected.replaceAll(" ", "%20");
+
+            String url = "https://jcc240796.000webhostapp.com/base_dados_uControl/inserir_ac_schedule.php?horaInicio="+textoacstart+"&horaFim="+textoacend+"&modo="+modo.toString()+"&intensidade="+intensidade+"&descricao="+selected;
 
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
