@@ -45,7 +45,7 @@ public class activity_air_conditioner extends AppCompatActivity {
     private ListView lac;
     private ImageView change;
     private String estado, modo, temperatura, idArCondicionado, descricao, selected;
-    private RadioButton rcold, rregular, rfreeze;
+    private RadioButton rcold, rregular, rheat;
     private Switch s;
 
     @Override
@@ -58,7 +58,7 @@ public class activity_air_conditioner extends AppCompatActivity {
         change = (ImageView)findViewById(R.id.changeAc);
         rcold = (RadioButton)findViewById(R.id.radioColdAc);
         rregular = (RadioButton)findViewById(R.id.radioRegularAc);
-        rfreeze = (RadioButton)findViewById(R.id.radioFreezeAc);
+        rheat = (RadioButton)findViewById(R.id.radioHeatAc);
         s = (Switch) findViewById(R.id.ac_switch);
 
         // ver se está ligado ou não
@@ -195,8 +195,8 @@ public class activity_air_conditioner extends AppCompatActivity {
                     else if(rregular.isChecked()){
                         modo = rregular.getText().toString();
                     }
-                    else if(rfreeze.isChecked()){
-                        modo = rfreeze.getText().toString();
+                    else if(rheat.isChecked()){
+                        modo = rheat.getText().toString();
                     }
 
                     // ver qual a temperatura

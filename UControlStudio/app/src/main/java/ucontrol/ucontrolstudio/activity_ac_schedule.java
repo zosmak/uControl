@@ -45,7 +45,7 @@ public class activity_ac_schedule extends AppCompatActivity {
     private TextView acstart, acend;
     private int horas=12, minutos=00;
     private ImageView confirm;
-    private RadioButton rcold, rregular, rfreeze;
+    private RadioButton rcold, rregular, rheat;
     private String modo, intensidade, idArCondicionado, selected;
     private Spinner spinner;
 
@@ -64,7 +64,7 @@ public class activity_ac_schedule extends AppCompatActivity {
         spinner =(Spinner)findViewById(R.id.spinnerAcSchedule);
         rcold = (RadioButton)findViewById(R.id.radioColdAc_schedule);
         rregular = (RadioButton)findViewById(R.id.radioRegularAc_schedule);
-        rfreeze = (RadioButton)findViewById(R.id.radioFreezeAc_schedule);
+        rheat = (RadioButton)findViewById(R.id.radioHeatAc_schedule);
 
         nb.setMaxValue(40);
         nb.setMinValue(1);
@@ -167,8 +167,8 @@ public class activity_ac_schedule extends AppCompatActivity {
         else if(rregular.isChecked()){
             modo = rregular.getText().toString();
         }
-        else if(rfreeze.isChecked()){
-            modo = rfreeze.getText().toString();
+        else if(rheat.isChecked()){
+            modo = rheat.getText().toString();
         }
 
         try

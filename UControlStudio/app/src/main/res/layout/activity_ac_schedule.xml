@@ -156,7 +156,7 @@
                         android:text="Heat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/radioFreezeAc_schedule"
+                        android:id="@+id/radioHeatAc_schedule"
                         android:fontFamily="Bariol"
                         android:textColor="@color/color_ac"
                         android:textStyle="normal|bold" />
